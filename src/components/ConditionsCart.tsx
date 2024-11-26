@@ -23,7 +23,7 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
 
 const styles = StyleSheet.create({
   main: {
-    marginTop: 23,
+    // marginTop: 10,
   },
   cart: {
     padding: 10,

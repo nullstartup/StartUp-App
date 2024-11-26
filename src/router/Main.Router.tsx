@@ -1,8 +1,9 @@
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from './routes';
 import {HomeScreen} from '../screens/Home.Screen';
-import { defaultScreenOptions } from '../configs/navigation.configs';
+import {defaultScreenOptions} from '../configs/navigation.configs';
 
 export const MainRouter = () => {
   const MainStack = createNativeStackNavigator<NavigationParamList>();

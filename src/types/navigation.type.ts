@@ -5,7 +5,8 @@ export type AppNavigation = NativeStackNavigationProp<NavigationParamList>;
 
 export type NavigationParamList = {
     [Routes.test]: undefined;
-    [Routes.register]: undefined;
     [Routes.home]: undefined;
     [Routes.welcome]: undefined;
+    [Routes.conditions]: undefined;
+    [Routes.register]: undefined;
 };

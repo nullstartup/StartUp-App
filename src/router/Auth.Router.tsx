@@ -7,6 +7,9 @@ import {
   defaultScreenOptions,
 } from '../configs/navigation.configs';
 import {WelcomeScreen} from '../screens/Welcome.Screen';
+import {ConditionsScreen} from '../screens/Conditions.Screen';
+import React from 'react';
+import {RegisterScreen} from '../screens/Register.Screen';
 
 const AuthStack = createNativeStackNavigator<NavigationParamList>();
 
@@ -21,6 +24,11 @@ export const AuthRouter = () => {
           component={WelcomeScreen}
           options={defaultScreenOptions}
         />
+        <AuthStack.Screen
+          name={Routes.conditions}
+          component={ConditionsScreen}
+        />
+        <AuthStack.Screen name={Routes.register} component={RegisterScreen} />
       </AuthStack.Navigator>
     </SafeAreaView>
   );

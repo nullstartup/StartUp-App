@@ -1,6 +1,7 @@
 export enum Routes {
     test = 'test',
-    register = 'register',
     welcome = 'welcome',
-    home = "home"
+    home = "home",
+    conditions = 'conditions',
+    register = 'register'
 }

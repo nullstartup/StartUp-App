@@ -1,47 +1,55 @@
 import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 import {Button} from '../components/Button';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {NavigationParamList} from '../types/navigation.type';
+import {Routes} from '../router/routes';
 
-export const WelcomeScreen = () => {
+export const WelcomeScreen: React.FC<
+  NativeStackScreenProps<NavigationParamList, Routes.welcome>
+> = ({navigation}) => {
+  const navigateToConditions = () => navigation.navigate(Routes.conditions);
+
   return (
     <ImageBackground
-      source={require('../assets/images/background.png')}
+      source={require('../assets/images/backgroundImage.png')}
       style={styles.background}
       resizeMode="cover">
       <View style={styles.main}>
         <Image
-          style={styles.logo}
-          source={require('../assets/images/departmentLogo.png')}></Image>
+          style={styles.departmentLogo}
+          source={require('../assets/images/departmentLogo.png')}
+        />
+
         <Image
           style={{width: 107, height: 112.56}}
-          source={require('../assets/images/userLogo.png')}></Image>
+          source={require('../assets/images/userLogo.png')}
+        />
+
         <View style={styles.bottom}>
           <Image
             style={{width: 183, height: 27, alignSelf: 'center'}}
-            source={require('../assets/images/welcome.png')}></Image>
-          <Text
-            style={{
-              width: 239,
-              height: 30,
-              fontSize: 12,
-              textAlign: 'center',
-              marginTop: 9,
-              fontWeight: '400',
-            }}>
+            source={require('../assets/images/welcome.png')}
+          />
+          <Text style={styles.description}>
             A single portal to multiple CBP services to streamline your
             experience.
           </Text>
-          <View style={{marginTop: 16}}>
-            <Button text="LOGIN OR SIGN UP"></Button>
+          <View style={{marginTop: 16, width: 239, height: 41}}>
+            <Button
+              textColor="#fff"
+              backgroundColor="#CE1C25"
+              style={styles.button}
+              onPress={navigateToConditions}
+              text="LOGIN OR SIGN UP"
+              width={127}
+              height={17}
+            />
           </View>
           <Image
-            style={{
-              width: 152,
-              height: 19,
-              alignSelf: 'center',
-              marginTop: 10,
-              // paddingBottom: 26,
-            }}
-            source={require('../assets/images/login.png')}></Image>
+            style={styles.loginText}
+            source={require('../assets/images/login.png')}
+          />
         </View>
       </View>
     </ImageBackground>
@@ -51,31 +59,55 @@ export const WelcomeScreen = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width: '100%',
-    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   main: {
-    borderWidth: 1,
     width: 298,
-    height: 406,
+    height: 426,
     alignItems: 'center',
-    alignSelf: 'center',
     borderTopColor: '#CE1C25',
     borderTopWidth: 6,
-    alignContent: 'center',
     borderRadius: 10,
     borderColor: '#fff',
+    // borderWidth: 1,
     backgroundColor: '#fff',
-    top: 150,
+    paddingTop: 59,
   },
-  logo: {
+  departmentLogo: {
     width: 68,
     height: 68,
-    top: -50,
+    position: 'absolute',
+    top: -34,
+    alignSelf: 'center',
   },
   bottom: {
     width: 239,
     height: 152,
     marginTop: 57,
+  },
+  description: {
+    width: 239,
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 9,
+    fontWeight: '400',
+  },
+  loginText: {
+    width: 152,
+    height: 19,
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+
+  flag: {
+    width: 40,
+    height: 27.5,
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 56,
+    borderRadius: 35,
+    backgroundColor: '#CE1C25',
   },
 });

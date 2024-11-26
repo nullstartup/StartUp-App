@@ -1,15 +1,34 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 interface IButton {
   text: string;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
+  backgroundColor?: string;
+  textColor?: string;
+  width?: number;
+  height?: number;
 }
 
-export const Button: React.FC<IButton> = ({text}) => {
+export const Button: React.FC<IButton> = ({
+  text,
+  onPress,
+  style,
+  backgroundColor,
+  textColor,
+}) => {
   return (
-    <Pressable>
-      <View style={styles.button}>
-        <Text style={styles.text}>{text}</Text>
+    <Pressable onPress={onPress}>
+      <View style={[styles.button, style, {backgroundColor}]}>
+        <Text style={[styles.text, {color: textColor}]}>{text}</Text>
       </View>
     </Pressable>
   );
@@ -20,13 +39,12 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 56,
     borderRadius: 35,
-    backgroundColor: '#CE1C25',
   },
   text: {
     textAlign: 'center',
     fontSize: 14,
-    width: 127,
-    height: 17,
-    color: '#F8F8F8',
+    fontWeight: '600',
+    width: 'auto',
+    height: 'auto',
   },
 });

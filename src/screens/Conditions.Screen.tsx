@@ -37,6 +37,7 @@ export const ConditionsScreen: React.FC<
         </Text>
       </View>
       <FlashList
+        scrollEnabled={false}
         data={Conditions}
         renderItem={renderItem}
         keyExtractor={(item, index) =>
@@ -121,6 +122,7 @@ const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    marginBottom: 25,
   },
   button: {
     borderWidth: 1,

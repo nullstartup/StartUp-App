@@ -9,4 +9,5 @@ export type NavigationParamList = {
     [Routes.welcome]: undefined;
     [Routes.conditions]: undefined;
     [Routes.register]: undefined;
+    [Routes.aboutYou]: undefined;
 };

@@ -1,22 +1,33 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 export interface IConditionsCart {
   id?: number;
   title: string;
   description: string;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const ConditionsCart: React.FC<IConditionsCart> = ({
   title,
   description,
+  onPress,
+  style,
 }) => {
   return (
-    <View style={styles.main}>
-      <View style={styles.cart}>
+    <View style={[styles.main, style]}>
+      <Pressable onPress={onPress} style={styles.cart}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
-      </View>
+      </Pressable>
     </View>
   );
 };

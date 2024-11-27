@@ -3,12 +3,17 @@ import React from 'react';
 import {Header} from '../components/Header';
 import {AboutYou, IAboutYou} from '../components/AboutYou';
 import {About} from '../mock/AboutYouMock';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {NavigationParamList} from '../types/navigation.type';
+import {Routes} from '../router/routes';
 // import {FlashList} from '@shopify/flash-list';
 
-export const AboutYouScreen = () => {
+export const AboutYouScreen: React.FC<
+  NativeStackScreenProps<NavigationParamList, Routes.aboutYou>
+> = ({navigation}) => {
   const renderItem = ({item}: {item: IAboutYou}) => (
     <AboutYou
-      onPress={() => console.log('pressed')}
+      onPress={() => navigation.navigate(Routes.selectTravel)}
       image={item.image}
       choice={item.choice}
     />
@@ -31,7 +36,7 @@ export const AboutYouScreen = () => {
           </Text>
         </View>
       </View>
-      <View style={{flex: 1,marginLeft:10}}>
+      <View style={{flex: 1, marginLeft: 10}}>
         <FlatList
           scrollEnabled={false}
           data={About}

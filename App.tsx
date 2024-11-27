@@ -8,8 +8,11 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Router from './src/router/Router';
+import {LogBox} from 'react-native';
 
 function App(): React.JSX.Element {
+  LogBox.ignoreAllLogs(); 
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <Router />

@@ -4,5 +4,6 @@ export enum Routes {
     home = "home",
     conditions = 'conditions',
     register = 'register',
-    aboutYou = 'aboutYou'
+    aboutYou = 'aboutYou',
+    selectTravel = 'selectTravel'
 }

@@ -14,7 +14,7 @@ export const WelcomeScreen: React.FC<
     <ImageBackground
       source={require('../assets/images/backgroundImage.png')}
       style={styles.background}
-      resizeMode="cover">
+      resizeMode="contain">
       <View style={styles.main}>
         <Image
           style={styles.departmentLogo}
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#00497C',
   },
   main: {
     width: 298,

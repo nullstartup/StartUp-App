@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 8,
     fontSize: 16,
-    width: 328,
+    width: '100%',
     height: 47,
   },
 });

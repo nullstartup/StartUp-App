@@ -43,10 +43,13 @@ export const RegisterScreen: React.FC<
             text="Create an account"></Button>
         </View>
         <Text style={styles.formTitle}>Sign in for existing users</Text>
-        <Input caption="Email address" placeholder="Email*"></Input>
-        <Input caption="Password" placeholder="Password*"></Input>
+        <View>
+          <Input caption="Email address" placeholder="Email*"></Input>
+          <Input caption="Password" placeholder="Password*"></Input>
+        </View>
         <Text style={{marginBottom: 15}}>show password</Text>
         <Button
+          onPress={() => navigation.navigate(Routes.aboutYou)}
           text="Sign in"
           textColor="#fff"
           backgroundColor="#0266B3"
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   signButton: {
-    width: 330,
+    width: '100%',
     height: 44,
     borderRadius: 8,
     alignContent: 'flex-end',

@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList, Image, StyleSheet, View} from 'react-native';
-import {Header} from '../components/Header';
+// import {Header} from '../components/Header';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
 import {Traveler} from '../mock/ConditonsMock';
 import {colors} from '../theme/colors';
@@ -19,11 +19,12 @@ export const HomeScreen = () => {
 
   return (
     <View style={{flex: 1}}>
-      <Header
+      {/* <Header
+      // onLeftPress={()}
         titleColor={colors.white}
         leftActionType="icon"
         left={vectors.hamburger_menu}
-        title="Traveler"></Header>
+        title="Traveler"></Header> */}
       <Image
         style={{width: 307, height: 155, alignSelf: 'center', marginTop: 35}}
         source={require('../assets/images/bigMap.png')}
@@ -71,11 +72,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const vectors = {
-  hamburger_menu: {
-    icon: require('../assets/vectors/hamburger_menu.svg'),
-    width: 24,
-    height: 24,
-    color: colors.white,
-  },
-};
+// const vectors = {
+//   hamburger_menu: {
+//     icon: require('../assets/vectors/hamburger_menu.svg'),
+//     width: 24,
+//     height: 24,
+//     color: colors.white,
+//   },
+// };

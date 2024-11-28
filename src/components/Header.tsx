@@ -1,5 +1,9 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, Pressable, StyleSheet} from 'react-native';
 import React from 'react';
+import {SvgImage} from '../components/SvgImage';
+import { CommonStyles } from '../theme/common.styles';
+import { colors } from '../theme/colors';
+import { normalize } from '../theme/metrics';
 
 type TType = 'standard' | 'large';
 type TAction = 'text' | 'icon' | 'text-icon' | 'button' | 'none';
@@ -25,26 +29,148 @@ interface IHeader {
   titleColor?: string;
 }
 
-export const Header: React.FC<IHeader> = ({title}) => {
+export const Header: React.FC<IHeader> = ({
+  type = 'standard',
+  title,
+  titleColor,
+  left,
+  right,
+  caption,
+  onLeftPress,
+  onRightPress,
+  leftActionType,
+  rightActionType,
+}) => {
+  const renderActions = (
+    actionType: TAction | undefined,
+    data: TSide,
+    side: 'left' | 'right' = 'left',
+  ) => {
+    const hasIcon = data && typeof data === 'object' && 'icon' in data;
+
+    switch (actionType) {
+      case 'text':
+        return (
+          <Text numberOfLines={2} style={styles.textType}>
+            {data as string}
+          </Text>
+        );
+
+      case 'icon':
+        if (hasIcon) {
+          const {icon, ...restOfIcon} = data as TIcon;
+          return <SvgImage source={icon} {...restOfIcon} />;
+        }
+        return <SvgImage source={data as NodeRequire} />;
+
+      case 'text-icon':
+        if (hasIcon) {
+          const {icon, text, ...restOfIcon} = data as TIcon;
+          return (
+            <View
+              style={[
+                CommonStyles.alignCenterJustifyBetweenRow,
+                side === 'right' && CommonStyles.rowReverse,
+              ]}>
+              <SvgImage source={icon} {...restOfIcon} />
+              <Text>{text}</Text>
+            </View>
+          );
+        }
+        return null;
+
+      //   case 'button':
+      //     return (
+      //     //   <Button
+      //     //     type="primary"
+      //     //     size="small"
+      //     //     text={data ? data.toString() : ''}
+      //     //     onPress={onPressAction}
+      //     //   />
+      //     );
+
+      default:
+        return null;
+    }
+  };
+
+  if (type === 'large') {
+    return (
+      <View style={[styles.root, styles.large]}>
+        <View style={styles.rightTitle}>
+          <Text>{title}</Text>
+          {caption ? (
+            <Text
+              style={[
+                {color: colors.ink.base},
+              ]}>
+              {caption}
+            </Text>
+          ) : null}
+        </View>
+        <Pressable
+          disabled={!onRightPress || rightActionType === 'button'}
+          onPress={onRightPress}
+          style={[
+            styles.action,
+            styles.actionRight,
+            !rightActionType && styles.hide,
+          ]}>
+          {renderActions(rightActionType, right, 'right')}
+        </Pressable>
+      </View>
+    );
+  }
   return (
-    <View style={styles.header}>
-      <Text style={styles.title}>{title}</Text>
+    <View style={[styles.root]}>
+      <Pressable
+        disabled={!onLeftPress || leftActionType === 'button'}
+        onPress={onLeftPress}
+        style={[styles.action, !leftActionType && styles.hide]}>
+        {renderActions(leftActionType, left, 'left')}
+      </Pressable>
+      <Text style={[titleColor && {color: titleColor}]}>{title}</Text>
+      <Pressable
+        disabled={!onRightPress || rightActionType === 'button'}
+        onPress={onRightPress}
+        style={[
+          styles.action,
+          styles.actionRight,
+          !rightActionType && styles.hide,
+        ]}>
+        {renderActions(rightActionType, right, 'right')}
+      </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    height: 50,
-    backgroundColor: '#00497C',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+  root: {
+    ...CommonStyles.alignCenterJustifyBetweenRow,
+    paddingVertical: normalize('vertical', 12),
   },
-  title: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '500',
-    textAlign: 'center',
+  large: {
+    paddingVertical: normalize('vertical', 16),
+  },
+  action: {
+    flex: 0.4,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    maxWidth: '20%',
+  },
+  actionRight: {
+    alignItems: 'flex-end',
+  },
+  textType: {
+    color: colors.primary.base,
+  },
+  hide: {
+    opacity: 0,
+  },
+  rightTitle: {
+    gap: 4,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    color: colors.ink.base,
   },
 });

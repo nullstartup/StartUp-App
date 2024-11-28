@@ -21,7 +21,12 @@ export const AboutYouScreen: React.FC<
 
   return (
     <View style={{flex: 1}}>
-      <Header title="Who are you"></Header>
+      <Header
+        rightActionType="icon"
+        onLeftPress={navigation.goBack}
+        right={vectors.arrow_left}
+        title="Who are you"
+      />
       <Image
         style={{width: 264, height: 196, alignSelf: 'center'}}
         source={require('../assets/images/userLogoTwo.png')}
@@ -76,3 +81,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
 });
+const vectors = {
+  arrow_left: {
+    icon: require('../assets/vectors/information.svg'),
+    width: 24,
+    height: 24,
+  },
+};

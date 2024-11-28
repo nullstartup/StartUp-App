@@ -17,7 +17,10 @@ export const HomeScreen = () => {
 
   return (
     <View style={{flex: 1}}>
-      <Header title="Traveler"></Header>
+      <Header
+        leftActionType="icon"
+        left={vectors.hamburger_menu}
+        title="Traveler"></Header>
       <Image
         style={{width: 307, height: 155, alignSelf: 'center', marginTop: 35}}
         source={require('../assets/images/bigMap.png')}
@@ -64,3 +67,11 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
 });
+
+const vectors = {
+  hamburger_menu: {
+    icon: require('../assets/vectors/hamburger_menu.svg'),
+    width: 24,
+    height: 24,
+  },
+};

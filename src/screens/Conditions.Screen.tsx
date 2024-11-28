@@ -27,7 +27,7 @@ export const ConditionsScreen: React.FC<
       <Header
         leftActionType="icon"
         onLeftPress={navigation.goBack}
-        left={require('../assets/images/flag.png')}
+        left={vectors.arrow_left}
         title="Terms & Conditions"
       />
       <View style={styles.titleView}>
@@ -174,3 +174,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+const vectors = {
+  arrow_left: {
+    icon: require('../assets/vectors/arrow_left.svg'),
+    width: 24,
+    height: 24,
+  },
+};

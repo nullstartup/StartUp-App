@@ -31,7 +31,12 @@ export const SelectTravelScreen: React.FC<
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Select Travel Method" />
+      <Header
+        leftActionType="icon"
+        left={vectors.arrow_left}
+        title="Select Travel Method"
+        onLeftPress={() => navigation.goBack()}
+      />
       <Text style={styles.title}>
         Please select from the options provided below. | Por favor seleccione
         una de las opciones a continuacion
@@ -57,3 +62,11 @@ const styles = StyleSheet.create({
     margin: 16,
   },
 });
+
+const vectors = {
+  arrow_left: {
+    icon: require('../assets/vectors/arrow_left.svg'),
+    width: 24,
+    height: 24,
+  },
+};

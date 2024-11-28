@@ -1,4 +1,11 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import {Header} from '../components/Header';
 import {Button} from '../components/Button';
@@ -6,13 +13,16 @@ import {Input} from '../components/Input';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
+import {colors} from '../theme/colors';
 
 export const RegisterScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.register>
 > = ({navigation}) => {
   return (
-    <View>
-      <Header title="An official website of the United States government"></Header>
+    <SafeAreaView>
+      <Header
+        titleColor={colors.white}
+        title="An official website of the United States government"></Header>
       <View style={{alignItems: 'center', gap: 20, paddingHorizontal: 14}}>
         <Image
           style={styles.image}
@@ -60,13 +70,13 @@ export const RegisterScreen: React.FC<
               fontSize: 14,
               fontWeight: '500',
               color: '#0266B3',
-              marginTop: 32,
+              // marginTop: 32,
             }}>
             Back to CBP One
           </Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

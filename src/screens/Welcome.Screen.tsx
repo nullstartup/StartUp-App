@@ -4,6 +4,7 @@ import {Button} from '../components/Button';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
+import {colors} from '../theme/colors';
 
 export const WelcomeScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.welcome>
@@ -37,8 +38,8 @@ export const WelcomeScreen: React.FC<
           </Text>
           <View style={{marginTop: 16, width: 239, height: 41}}>
             <Button
-              textColor="#fff"
-              backgroundColor="#CE1C25"
+              textColor={colors.white}
+              backgroundColor={colors.red.line}
               style={styles.button}
               onPress={navigateToConditions}
               text="LOGIN OR SIGN UP"

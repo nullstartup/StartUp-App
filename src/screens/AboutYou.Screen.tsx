@@ -6,6 +6,7 @@ import {About} from '../mock/AboutYouMock';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
+import {colors} from '../theme/colors';
 // import {FlashList} from '@shopify/flash-list';
 
 export const AboutYouScreen: React.FC<
@@ -26,6 +27,7 @@ export const AboutYouScreen: React.FC<
         onLeftPress={navigation.goBack}
         right={vectors.arrow_left}
         title="Who are you"
+        titleColor={colors.white}
       />
       <Image
         style={{width: 264, height: 196, alignSelf: 'center'}}
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 328,
     height: 3,
-    borderColor: '#CE1C25',
+    borderColor: colors.red.line,
     borderRadius: 8,
     alignSelf: 'center',
   },

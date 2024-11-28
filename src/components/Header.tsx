@@ -1,9 +1,9 @@
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 import React from 'react';
 import {SvgImage} from '../components/SvgImage';
-import { CommonStyles } from '../theme/common.styles';
-import { colors } from '../theme/colors';
-import { normalize } from '../theme/metrics';
+import {CommonStyles} from '../theme/common.styles';
+import {colors} from '../theme/colors';
+import {normalize} from '../theme/metrics';
 
 type TType = 'standard' | 'large';
 type TAction = 'text' | 'icon' | 'text-icon' | 'button' | 'none';
@@ -79,16 +79,6 @@ export const Header: React.FC<IHeader> = ({
         }
         return null;
 
-      //   case 'button':
-      //     return (
-      //     //   <Button
-      //     //     type="primary"
-      //     //     size="small"
-      //     //     text={data ? data.toString() : ''}
-      //     //     onPress={onPressAction}
-      //     //   />
-      //     );
-
       default:
         return null;
     }
@@ -100,12 +90,7 @@ export const Header: React.FC<IHeader> = ({
         <View style={styles.rightTitle}>
           <Text>{title}</Text>
           {caption ? (
-            <Text
-              style={[
-                {color: colors.ink.base},
-              ]}>
-              {caption}
-            </Text>
+            <Text style={[{color: colors.ink.base}]}>{caption}</Text>
           ) : null}
         </View>
         <Pressable
@@ -148,6 +133,7 @@ const styles = StyleSheet.create({
   root: {
     ...CommonStyles.alignCenterJustifyBetweenRow,
     paddingVertical: normalize('vertical', 12),
+    backgroundColor: colors.bg.blue,
   },
   large: {
     paddingVertical: normalize('vertical', 16),

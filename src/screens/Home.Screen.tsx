@@ -3,6 +3,7 @@ import {FlatList, Image, StyleSheet, View} from 'react-native';
 import {Header} from '../components/Header';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
 import {Traveler} from '../mock/ConditonsMock';
+import {colors} from '../theme/colors';
 
 export const HomeScreen = () => {
   const renderItem = ({item}: {item: IConditionsCart}) => {
@@ -11,13 +12,15 @@ export const HomeScreen = () => {
         title={item.title}
         description={item.description}
         onPress={() => console.log('pressed')}
-        style={{marginTop: 15}}></ConditionsCart>
+        style={{marginTop: 15}}
+        icon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
     );
   };
 
   return (
     <View style={{flex: 1}}>
       <Header
+        titleColor={colors.white}
         leftActionType="icon"
         left={vectors.hamburger_menu}
         title="Traveler"></Header>
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 328,
     height: 3,
-    borderColor: '#CE1C25',
+    borderColor: colors.red.line,
     borderRadius: 8,
     alignSelf: 'center',
     marginTop: 30,
@@ -73,5 +76,6 @@ const vectors = {
     icon: require('../assets/vectors/hamburger_menu.svg'),
     width: 24,
     height: 24,
+    color: colors.white,
   },
 };

@@ -10,5 +10,6 @@ export type NavigationParamList = {
     [Routes.conditions]: undefined;
     [Routes.register]: undefined;
     [Routes.aboutYou]: undefined;
-    [Routes.selectTravel]:undefined;
+    [Routes.selectTravel]: undefined;
+    [Routes.languagePreference]: undefined;
 };

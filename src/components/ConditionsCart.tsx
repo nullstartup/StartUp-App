@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     width: 324,
     alignSelf: 'center',
     position: 'relative',
-    backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.bottom,
   },

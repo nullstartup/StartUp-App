@@ -9,9 +9,10 @@ import {
   Image,
   ImageSourcePropType,
 } from 'react-native';
+import {colors} from '../theme/colors';
 
 interface IRadio {
-  options: {label: string; value: string; image: ImageSourcePropType}[];
+  options: {label: string; value: string; image?: ImageSourcePropType}[];
   checkedValue: string;
   onChange: (value: string) => void;
   style?: StyleProp<ViewStyle>;
@@ -63,6 +64,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 15,
     justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.bottom,
   },
   activeRadio: {
     // backgroundColor: '#e0f7fa',

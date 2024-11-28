@@ -12,7 +12,7 @@ export const HomeScreen = () => {
         title={item.title}
         description={item.description}
         onPress={() => console.log('pressed')}
-        style={{marginTop: 15}}
+        style={{marginTop: 15,backgroundColor:colors.transparent}}
         icon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
     );
   };
@@ -72,11 +72,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// const vectors = {
-//   hamburger_menu: {
-//     icon: require('../assets/vectors/hamburger_menu.svg'),
-//     width: 24,
-//     height: 24,
-//     color: colors.white,
-//   },
-// };

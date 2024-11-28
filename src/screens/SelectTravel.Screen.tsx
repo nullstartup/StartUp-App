@@ -5,6 +5,7 @@ import {Radio} from '../components/Radio';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
+import {colors} from '../theme/colors';
 
 export const SelectTravelScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.selectTravel>
@@ -36,6 +37,7 @@ export const SelectTravelScreen: React.FC<
         left={vectors.arrow_left}
         title="Select Travel Method"
         onLeftPress={() => navigation.goBack()}
+        titleColor={colors.white}
       />
       <Text style={styles.title}>
         Please select from the options provided below. | Por favor seleccione

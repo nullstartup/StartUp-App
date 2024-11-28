@@ -7,6 +7,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {SvgProps} from 'react-native-svg';
+import {SvgImage} from './SvgImage';
+import {colors} from '../theme/colors';
 
 export interface IConditionsCart {
   id?: number;
@@ -14,6 +17,7 @@ export interface IConditionsCart {
   description: string;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
+  icon?: SvgProps;
 }
 
 export const ConditionsCart: React.FC<IConditionsCart> = ({
@@ -21,12 +25,14 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
   description,
   onPress,
   style,
+  icon,
 }) => {
   return (
     <View style={[styles.main, style]}>
       <Pressable onPress={onPress} style={styles.cart}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
+        {icon && <SvgImage style={styles.icon} source={icon} />}
       </Pressable>
     </View>
   );
@@ -38,10 +44,12 @@ const styles = StyleSheet.create({
   },
   cart: {
     padding: 10,
-    marginBottom: 10,
     width: 324,
-    height: 67,
     alignSelf: 'center',
+    position: 'relative',
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.bottom,
   },
   title: {
     fontWeight: '500',
@@ -55,5 +63,11 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     height: 45,
     width: 324,
+  },
+  icon: {
+    position: 'absolute',
+    bottom: 0,
+    right: 10,
+    color: colors.bg.blue,
   },
 });

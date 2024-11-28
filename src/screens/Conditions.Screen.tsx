@@ -8,6 +8,7 @@ import {FlashList} from '@shopify/flash-list';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
 import {Conditions} from '../mock/ConditonsMock';
 import {Button} from '../components/Button';
+import {colors} from '../theme/colors';
 
 export const ConditionsScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.conditions>
@@ -29,6 +30,7 @@ export const ConditionsScreen: React.FC<
         onLeftPress={navigation.goBack}
         left={vectors.arrow_left}
         title="Terms & Conditions"
+        titleColor={colors.white}
       />
       <View style={styles.titleView}>
         <Text style={styles.title}>Welcome to our application!</Text>

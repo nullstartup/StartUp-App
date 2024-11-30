@@ -1,4 +1,4 @@
-import {Modal, StyleSheet, Text, View} from 'react-native';
+import {Modal, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {Header} from '../components/Header';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -6,15 +6,30 @@ import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {FlashList} from '@shopify/flash-list';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
-import {Conditions} from '../mock/ConditonsMock';
+import {Conditions, advanceInformation} from '../mock/ConditonsMock';
 import {Button} from '../components/Button';
 import {colors} from '../theme/colors';
 
 export const ConditionsScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.conditions>
 > = ({navigation}) => {
-  const renderItem = ({item}: {item: IConditionsCart}) => {
-    return <ConditionsCart title={item.title} description={item.description} />;
+  const renderItem = ({
+    item,
+    index,
+  }: {
+    item: IConditionsCart;
+    index: number;
+  }) => {
+    const isLast = index === advanceInformation.length - 1;
+    return (
+      <ConditionsCart
+        id={item.id}
+        titleColor={colors.bg.blue}
+        title={item.title}
+        description={item.description}
+        isLast={isLast}
+      />
+    );
   };
 
   const [isModalVisible, setModalVisible] = useState(false);
@@ -38,14 +53,16 @@ export const ConditionsScreen: React.FC<
           By using this app, you agree to the following terms and conditions:
         </Text>
       </View>
-      <FlashList
-        scrollEnabled={false}
-        data={Conditions}
-        renderItem={renderItem}
-        keyExtractor={(item, index) =>
-          item.id ? item.id.toString() : index.toString()
-        }
-      />
+      <ScrollView style={{marginLeft: 20}}>
+        <FlashList
+          scrollEnabled={false}
+          data={Conditions}
+          renderItem={renderItem}
+          keyExtractor={(item, index) =>
+            item.id ? item.id.toString() : index.toString()
+          }
+        />
+      </ScrollView>
       <View style={styles.buttons}>
         <Button
           width={58}

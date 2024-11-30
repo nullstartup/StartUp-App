@@ -10,7 +10,7 @@ import {colors} from '../theme/colors';
 export const SelectTravelScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.selectTravel>
 > = ({navigation}) => {
-  const [selectedValue, setSelectedValue] = useState('Land | Tierra');
+  const [selectedValue, setSelectedValue] = useState('');
 
   const options = [
     {

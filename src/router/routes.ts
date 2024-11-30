@@ -6,5 +6,8 @@ export enum Routes {
     register = 'register',
     aboutYou = 'aboutYou',
     selectTravel = 'selectTravel',
-    languagePreference = 'languagePreference'
+    languagePreference = 'languagePreference',
+    advanceInformation = 'advanceInformation',
+    userList = 'userList',
+    userDetails = 'userDetails'
 }

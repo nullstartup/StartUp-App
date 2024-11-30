@@ -1,30 +1,44 @@
-import React from 'react';
-import {FlatList, Image, StyleSheet, View} from 'react-native';
-// import {Header} from '../components/Header';
+import React, {useState} from 'react';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Modal,
+  StyleSheet,
+  View,
+} from 'react-native';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
 import {Traveler} from '../mock/ConditonsMock';
 import {colors} from '../theme/colors';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {NavigationParamList} from '../types/navigation.type';
+import {Routes} from '../router/routes';
 
-export const HomeScreen = () => {
+export const HomeScreen: React.FC<
+  NativeStackScreenProps<NavigationParamList, Routes.home>
+> = ({navigation}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const handlePress = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate(Routes.languagePreference);
+    }, 2000);
+  };
   const renderItem = ({item}: {item: IConditionsCart}) => {
     return (
       <ConditionsCart
+        titleColor={colors.bg.blue}
         title={item.title}
         description={item.description}
-        onPress={() => console.log('pressed')}
-        style={{marginTop: 15,backgroundColor:colors.transparent}}
+        onPress={handlePress}
+        style={{marginTop: 15}}
         icon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
     );
   };
 
   return (
     <View style={{flex: 1}}>
-      {/* <Header
-      // onLeftPress={()}
-        titleColor={colors.white}
-        leftActionType="icon"
-        left={vectors.hamburger_menu}
-        title="Traveler"></Header> */}
       <Image
         style={{width: 307, height: 155, alignSelf: 'center', marginTop: 35}}
         source={require('../assets/images/bigMap.png')}
@@ -40,6 +54,14 @@ export const HomeScreen = () => {
           }
         />
       </View>
+      <Modal visible={isLoading} transparent={true} animationType="fade">
+        <View style={styles.modalContainer}>
+          <Image
+            style={styles.loadingImage}
+            source={require('../assets/images/departmentLogo.png')}
+          />
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -47,12 +69,13 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
   line: {
     borderWidth: 1,
-    width: 328,
+    width: Dimensions.get('screen').width,
     height: 3,
     borderColor: colors.red.line,
     borderRadius: 8,
     alignSelf: 'center',
     marginTop: 30,
+    backgroundColor: colors.red.line,
   },
   bottom: {
     alignItems: 'center',
@@ -70,5 +93,14 @@ const styles = StyleSheet.create({
     height: 51,
     marginTop: 8,
   },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  loadingImage: {
+    width: 80,
+    height: 80,
+  },
 });
-

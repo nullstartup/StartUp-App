@@ -1,42 +1,63 @@
 import {
   Image,
   Pressable,
-  SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
+  Modal,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Header} from '../components/Header';
 import {Button} from '../components/Button';
-import {Input} from '../components/Input';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {colors} from '../theme/colors';
+import {SvgImage} from '../components/SvgImage';
+import {Input} from '../components/Input';
 
 export const RegisterScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.register>
 > = ({navigation}) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState);
+  };
+
+  const handleSignIn = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate(Routes.aboutYou);
+    }, 2000); // Simulated loading duration
+  };
+
   return (
-    <SafeAreaView>
+    <ScrollView style={{flex: 1}}>
       <Header
         titleColor={colors.white}
-        title="An official website of the United States government"></Header>
+        title="An official website of the United States government"
+      />
       <View style={{alignItems: 'center', gap: 20, paddingHorizontal: 14}}>
         <Image
           style={styles.image}
-          source={require('../assets/images/loginAndDepartment.png')}></Image>
+          source={require('../assets/images/loginAndDepartment.png')}
+        />
         <Image
           style={styles.imageTwo}
-          source={require('../assets/images/people.png')}></Image>
+          source={require('../assets/images/people.png')}
+        />
         <Text style={styles.title}>
           <Text style={{fontWeight: '700'}}>CBP One </Text>
-          is using Login.gov to allow you to sign in to your account safelly and
+          is using Login.gov to allow you to sign in to your account safely and
           securely.
         </Text>
       </View>
-      <View style={{paddingHorizontal: 14}}>
+      <View style={{paddingHorizontal: 14, flex: 1}}>
         <View style={styles.buttons}>
           <Button
             width={58}
@@ -44,39 +65,94 @@ export const RegisterScreen: React.FC<
             style={styles.button}
             backgroundColor="#0266B3"
             textColor="#fff"
-            text="Sign in"></Button>
+            text="Sign in"
+          />
           <Button
             width={58}
             height={19}
             textColor="#0266B3"
             style={styles.button}
-            text="Create an account"></Button>
+            text="Create an account"
+          />
         </View>
-        <Text style={styles.formTitle}>Sign in for existing users</Text>
-        <View>
-          <Input caption="Email address" placeholder="Email*"></Input>
-          <Input caption="Password" placeholder="Password*"></Input>
-        </View>
-        <Text style={{marginBottom: 15}}>show password</Text>
-        <Button
-          onPress={() => navigation.navigate(Routes.aboutYou)}
-          text="Sign in"
-          textColor="#fff"
-          backgroundColor="#0266B3"
-          style={styles.signButton}></Button>
-        <Pressable onPress={() => navigation.goBack()}>
-          <Text
-            style={{
-              fontSize: 14,
-              fontWeight: '500',
-              color: '#0266B3',
-              // marginTop: 32,
-            }}>
-            Back to CBP One
+        <View style={{flexDirection: 'column', flex: 1}}>
+          <Text style={styles.formTitle}>Sign in for existing users</Text>
+          <View>
+            <Input caption="Email address" placeholder="Email*" />
+            <TextInput
+              style={styles.input}
+              placeholder="Password*"
+              secureTextEntry={!showPassword}
+            />
+          </View>
+          <View style={styles.showPasswordContainer}>
+            <Pressable onPress={togglePasswordVisibility}>
+              <View style={styles.checkbox}>
+                {showPassword && <View style={styles.checkmark} />}
+              </View>
+            </Pressable>
+            <Text style={styles.password}>Show password</Text>
+          </View>
+          <Button
+            onPress={handleSignIn}
+            text="Sign in"
+            textColor={colors.white}
+            backgroundColor={colors.bg.openBlue}
+            style={styles.signButton}
+          />
+          <Pressable onPress={() => navigation.goBack()}>
+            <View style={styles.bottom}>
+              <View style={{flexDirection: 'row'}}>
+                <SvgImage
+                  source={require('../assets/vectors/arrow_leftt.svg')}
+                  style={{
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+                <Text style={styles.linkText}>Back to CBP One</Text>
+              </View>
+            </View>
+          </Pressable>
+
+          <Text style={styles.linkText}>Forgot your password?</Text>
+          <Text style={styles.linkText}>
+            Security Practices and Privacy Act Statement
           </Text>
-        </Pressable>
+          <Text style={styles.linkText}>Privacy Act Statement</Text>
+
+          <Text style={{marginTop: 40, marginBottom: 20}}>
+            This site protected by reCAPTCHA and the Google{' '}
+            <Text
+              style={{
+                color: colors.bg.openBlue,
+                borderBottomWidth: 1,
+                borderBottomColor: colors.bg.openBlue,
+              }}>
+              Privacy Policy
+            </Text>{' '}
+            and{' '}
+            <Text
+              style={{
+                color: colors.bg.openBlue,
+                borderBottomWidth: 1,
+                borderBottomColor: colors.bg.openBlue,
+              }}>
+              Terms of Service
+            </Text>
+            {''} apply.
+          </Text>
+        </View>
       </View>
-    </SafeAreaView>
+      <Modal visible={isLoading} transparent={true} animationType="fade">
+        <View style={styles.modalContainer}>
+          <Image
+            style={styles.loadingImage}
+            source={require('../assets/images/departmentLogo.png')}
+          />
+        </View>
+      </Modal>
+    </ScrollView>
   );
 };
 
@@ -118,5 +194,59 @@ const styles = StyleSheet.create({
     height: 44,
     borderRadius: 8,
     alignContent: 'flex-end',
+    marginBottom: 10,
+  },
+  password: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#0266B3',
+  },
+  bottom: {
+    flexDirection: 'column',
+    marginBottom: 10,
+  },
+  input: {
+    height: 50,
+    borderColor: colors.border.bottom,
+    borderWidth: 2,
+    borderRadius: 8,
+    marginBottom: 15,
+    paddingLeft: 10,
+  },
+  showPasswordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderColor: colors.bg.blue,
+    borderRadius: 3,
+    marginRight: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkmark: {
+    width: 12,
+    height: 12,
+    backgroundColor: colors.bg.blue,
+    borderRadius: 2,
+  },
+  linkText: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: colors.bg.openBlue,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  loadingImage: {
+    width: 80,
+    height: 80,
   },
 });

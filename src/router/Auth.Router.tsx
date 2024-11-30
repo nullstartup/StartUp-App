@@ -1,4 +1,11 @@
-import {Image, SafeAreaView, StyleSheet, Text} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {Routes} from './routes';
 import {NavigationParamList} from '../types/navigation.type';
 import {
@@ -24,6 +31,9 @@ import React from 'react';
 import {colors} from '../theme/colors';
 import {SvgImage} from '../components/SvgImage';
 import {LanguagePreferenceScreen} from '../screens/LanguagePreference.Screen';
+import {AdvanceInformationScreen} from '../screens/AdvanceInformation.Screen';
+import {UserListScreen} from '../screens/UserList';
+import {UserDetailsScreen} from '../screens/UserDetails.Screen';
 
 const AuthStack = createNativeStackNavigator<NavigationParamList>();
 const Drawer = createDrawerNavigator<NavigationParamList>();
@@ -54,6 +64,15 @@ export const AuthRouter = () => {
           name={Routes.languagePreference}
           component={LanguagePreferenceScreen}
         />
+        <AuthStack.Screen
+          name={Routes.advanceInformation}
+          component={AdvanceInformationScreen}
+        />
+        <AuthStack.Screen name={Routes.userList} component={UserListScreen} />
+        <AuthStack.Screen
+          name={Routes.userDetails}
+          component={UserDetailsScreen}
+        />
       </AuthStack.Navigator>
     </SafeAreaView>
   );
@@ -61,7 +80,7 @@ export const AuthRouter = () => {
 
 export const HomeScreenWithDrawer: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.home>
-> = ({navigation}) => {
+> = () => {
   return (
     <Drawer.Navigator
       initialRouteName={Routes.home}
@@ -74,11 +93,16 @@ export const HomeScreenWithDrawer: React.FC<
       drawerContent={props => (
         <DrawerContentScrollView {...props}>
           <Image
-            style={{width: '100%', height: 143}}
+            style={{
+              width: Dimensions.get('screen').width,
+              height: 143,
+              left: -12,
+            }}
             source={require('../assets/images/sidebarBg.png')}></Image>
           <Image
             style={styles.imageTwo}
             source={require('../assets/images/sidebarBgtwo.png')}></Image>
+          <View style={styles.lineOne}></View>
           <DrawerItem
             label="Home"
             onPress={() => console.log('Home pressed')}
@@ -96,9 +120,10 @@ export const HomeScreenWithDrawer: React.FC<
           <Text style={{left: 20, color: colors.bg.blue}}>
             Bus Company / Operator
           </Text>
+          <View style={styles.line}></View>
           <DrawerItem
             label="Notifications"
-            onPress={() => console.log('Notifications Pressed')}
+            onPress={() => console.log('Notifications pressed')}
             labelStyle={{color: colors.black}}
             icon={() => (
               <SvgImage
@@ -111,8 +136,8 @@ export const HomeScreenWithDrawer: React.FC<
             )}
           />
           <DrawerItem
-            label="Language"
-            onPress={() => navigation.navigate(Routes.languagePreference)}
+            label="Help"
+            onPress={() => console.log('Help pressed')}
             labelStyle={{color: colors.black}}
             icon={() => (
               <SvgImage
@@ -156,5 +181,24 @@ const styles = StyleSheet.create({
     top: 50,
     alignSelf: 'center',
     justifyContent: 'center',
+  },
+  line: {
+    borderWidth: 1,
+    width: Dimensions.get('screen').width,
+    height: 3,
+    borderColor: colors.border.bottom,
+    borderRadius: 8,
+    alignSelf: 'center',
+    backgroundColor: colors.border.bottom,
+    marginTop: 20,
+  },
+  lineOne: {
+    borderWidth: 1,
+    width: Dimensions.get('screen').width,
+    height: 3,
+    borderColor: colors.red.line,
+    borderRadius: 8,
+    alignSelf: 'center',
+    backgroundColor: colors.red.line,
   },
 });

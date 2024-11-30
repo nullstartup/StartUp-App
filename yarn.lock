@@ -3170,6 +3170,7 @@ __metadata:
     react-native-reanimated: ^3.16.2
     react-native-safe-area-context: ^4.14.0
     react-native-screens: ^4.3.0
+    react-native-simple-text-captcha: ^0.1.0
     react-native-svg: ^15.9.0
     react-native-svg-transformer: ^1.5.0
     react-test-renderer: 18.3.1
@@ -8519,6 +8520,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-simple-text-captcha@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "react-native-simple-text-captcha@npm:0.1.0"
+  dependencies:
+    react-native-svg: ^15.4.0
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a5ae06756564561be243a261d58ef88d0baf476c88583554d345ffebc8f7e4cbb13f61e967a940ceb43f9b672ff614621ce9096612c5da5a3e5d0007d2cd9c3e
+  languageName: node
+  linkType: hard
+
 "react-native-svg-transformer@npm:^1.5.0":
   version: 1.5.0
   resolution: "react-native-svg-transformer@npm:1.5.0"
@@ -8534,7 +8547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-svg@npm:^15.9.0":
+"react-native-svg@npm:^15.4.0, react-native-svg@npm:^15.9.0":
   version: 15.9.0
   resolution: "react-native-svg@npm:15.9.0"
   dependencies:

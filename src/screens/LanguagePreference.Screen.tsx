@@ -55,15 +55,17 @@ export const LanguagePreferenceScreen: React.FC<
         options={options}
         checkedValue={selectedValue}
         onChange={setSelectedValue}
-        onPress={() => console.log('language selected')}
+        onPress={() => console.log('Language selected')}
       />
       <View style={styles.buttonContainer}>
         <Button
+          style={styles.button}
           width={328}
           height={44}
           text="Continue"
           textColor={colors.white}
           backgroundColor={colors.bg.blue}
+          onPress={() => navigation.navigate(Routes.advanceInformation)}
         />
       </View>
     </SafeAreaView>
@@ -91,6 +93,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'flex-end',
     marginBottom: 16,
+  },
+  button: {
+    borderRadius: 8,
+    width: 328,
+    alignSelf: 'center',
+    marginTop: 20,
   },
 });
 

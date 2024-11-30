@@ -12,4 +12,7 @@ export type NavigationParamList = {
     [Routes.aboutYou]: undefined;
     [Routes.selectTravel]: undefined;
     [Routes.languagePreference]: undefined;
+    [Routes.advanceInformation]: undefined;
+    [Routes.userList]: undefined;
+    [Routes.userDetails]: undefined;
 };

@@ -13,8 +13,15 @@ export const colors = {
     transparent: 'transparent',
     bg: {
         blue: '#00497C',
+        openBlue: '#0266B3',
     },
     border: {
         bottom: '#EFEFEF',
+    },
+    green: {
+        open: '#6DAF39',
+    },
+    gray: {
+        open: '#484848',
     },
 };

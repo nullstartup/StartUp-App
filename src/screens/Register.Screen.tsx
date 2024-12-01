@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
   Modal,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import {Header} from '../components/Header';
@@ -33,12 +34,14 @@ export const RegisterScreen: React.FC<
     setTimeout(() => {
       setIsLoading(false);
       navigation.navigate(Routes.aboutYou);
-    }, 2000); // Simulated loading duration
+    }, 2000);
   };
 
   return (
     <ScrollView style={{flex: 1}}>
       <Header
+        leftActionType="icon"
+        left={vectors.flag}
         titleColor={colors.white}
         title="An official website of the United States government"
       />
@@ -142,6 +145,38 @@ export const RegisterScreen: React.FC<
             </Text>
             {''} apply.
           </Text>
+          <View style={styles.footer}>
+            <View style={styles.footerTopp}>
+              <SvgImage
+                width={15}
+                height={15}
+                source={require('../assets/vectors/globe.svg')}></SvgImage>
+              <Text style={styles.footerText}>Language</Text>
+              <SvgImage
+                width={15}
+                height={15}
+                color={colors.bg.blue}
+                source={require('../assets/vectors/arrow_up.svg')}></SvgImage>
+            </View>
+
+            <View style={styles.footerTop}>
+              <Text style={styles.footerTextt}>Help</Text>
+              <Text style={styles.footerTextt}>Contact</Text>
+              <Text style={styles.footerTextt}>Privacy & Security</Text>
+            </View>
+
+            <View style={styles.footerTop}>
+              <Text style={styles.footerText}>Accessibility Statement</Text>
+            </View>
+
+            <View style={styles.footerTop}>
+              <SvgImage
+                source={require('../assets/vectors/footer_gsa.svg')}></SvgImage>
+              <Text style={styles.footerText}>
+                Us General Services Administration
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <Modal visible={isLoading} transparent={true} animationType="fade">
@@ -249,4 +284,45 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
   },
+  footer: {},
+  footerTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: Dimensions.get('screen').width,
+    left: -14,
+    justifyContent: 'center',
+    backgroundColor: '#CCE5FF',
+    height: 31,
+    // borderWidth: 1,
+  },
+  footerText: {
+    color: colors.bg.blue,
+    fontSize: 14,
+    fontWeight: '500',
+    paddingHorizontal: 10,
+  },
+  footerTextt: {
+    color: colors.bg.blue,
+    fontSize: 12,
+    fontWeight: '500',
+    marginRight: 15,
+  },
+  footerTopp: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: Dimensions.get('screen').width,
+    left: -14,
+    justifyContent: 'center',
+    backgroundColor: '#CCE5FF',
+    height: 31,
+    borderBottomWidth: 1,
+  },
 });
+
+const vectors = {
+  flag: {
+    icon: require('../assets/vectors/flag.svg'),
+    width: 24,
+    height: 24,
+  },
+};

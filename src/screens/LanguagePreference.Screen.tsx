@@ -75,7 +75,6 @@ export const LanguagePreferenceScreen: React.FC<
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
     justifyContent: 'flex-start',
   },
   text: {
@@ -88,6 +87,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderBottomWidth: 1,
     borderBottomColor: colors.border.bottom,
+    width: 331,
   },
   buttonContainer: {
     flexGrow: 1,

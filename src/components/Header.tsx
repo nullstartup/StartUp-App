@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
     ...CommonStyles.alignCenterJustifyBetweenRow,
     paddingVertical: normalize('vertical', 12),
     backgroundColor: colors.bg.blue,
+    paddingHorizontal: 10,
   },
   large: {
     paddingVertical: normalize('vertical', 16),

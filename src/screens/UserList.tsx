@@ -13,7 +13,7 @@ export const UserListScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.userList>
 > = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Header
         leftActionType="icon"
         onLeftPress={navigation.goBack}
@@ -28,15 +28,19 @@ export const UserListScreen: React.FC<
         style={styles.button}
         text="Register Travelers"
         backgroundColor={colors.bg.openBlue}
-        textColor={colors.white}></Button>
-
+        textColor={colors.white}
+      />
       <View style={styles.userBox}>
-        <SvgImage source={require('../assets/vectors/check.svg')} />
+        <SvgImage
+          source={require('../assets/vectors/check.svg')}
+          style={styles.svgImage}
+        />
         <ConditionsCart
           onPress={() => navigation.navigate(Routes.userDetails)}
           titleColor={colors.black}
           title="APPOINTMENT SCHEDULED"
           description="Garita El Chaparra / Pedwest San on Nov 15, 2024 at 20:00"
+          style={styles.conditionsCart}
         />
       </View>
     </View>
@@ -44,6 +48,9 @@ export const UserListScreen: React.FC<
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   button: {
     borderRadius: 8,
     width: 328,
@@ -55,6 +62,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     marginLeft: 20,
+  },
+  svgImage: {
+    marginRight: 10,
+  },
+  conditionsCart: {
+    flex: 1,
   },
 });
 

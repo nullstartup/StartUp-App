@@ -65,7 +65,7 @@ export const AdvanceInformationScreen: React.FC<
         setModalVisible(false);
         navigation.navigate(Routes.userList);
       } else {
-        setValidateResult('Captcha Incorrect');
+        setValidateResult('Enter Valid Captcha Incorrect');
       }
     }, 2000);
   };
@@ -178,8 +178,8 @@ const styles = StyleSheet.create({
     height: 220,
   },
   loadingImage: {
-    width: 100,
-    height: 100,
+    width: 260,
+    height: 260,
   },
   rowContainer: {
     flexDirection: 'row',

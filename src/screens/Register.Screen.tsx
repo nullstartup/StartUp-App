@@ -43,7 +43,7 @@ export const RegisterScreen: React.FC<
         leftActionType="icon"
         left={vectors.flag}
         titleColor={colors.white}
-        title="An official website of the United States government"
+        title="      An official website of the United States government"
       />
       <View style={{alignItems: 'center', gap: 20, paddingHorizontal: 14}}>
         <Image
@@ -281,8 +281,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   loadingImage: {
-    width: 80,
-    height: 80,
+    width: 260,
+    height: 260,
   },
   footer: {},
   footerTop: {

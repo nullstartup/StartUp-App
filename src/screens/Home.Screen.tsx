@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   loadingImage: {
-    width: 80,
-    height: 80,
+    width: 260,
+    height: 260,
   },
 });

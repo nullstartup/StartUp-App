@@ -14,7 +14,7 @@ import {colors} from '../theme/colors';
 export interface IConditionsCart {
   id?: number;
   title?: string;
-  description: string;
+  description?: string;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   icon?: SvgProps;
@@ -23,7 +23,7 @@ export interface IConditionsCart {
   linkText?: string;
   additoinalText?: string;
   additoinalTextTwo?: string;
-  descriptionStyle?: StyleProp<ViewStyle>; 
+  descriptionStyle?: StyleProp<ViewStyle>;
 }
 
 export const ConditionsCart: React.FC<IConditionsCart> = ({
@@ -38,7 +38,7 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
   linkText,
   additoinalText,
   additoinalTextTwo,
-  descriptionStyle, 
+  descriptionStyle,
 }) => {
   const [cartHeight, setCartHeight] = useState(0);
 
@@ -63,27 +63,34 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
             )}
           </View>
         ) : null}
+        <View style={{flex: 1}}>
+          <Pressable
+            onLayout={handleLayout}
+            onPress={onPress}
+            style={id ? styles.cartWithId : styles.cart}>
+            <View style={styles.contentContainer}>
+              <View style={styles.textContainer}>
+                <Text style={[styles.title, titleColor && {color: titleColor}]}>
+                  {title}
+                </Text>
+                <Text style={[styles.description, descriptionStyle]}>
+                  {description}
+                </Text>
 
-        <Pressable
-          onLayout={handleLayout}
-          onPress={onPress}
-          style={id ? styles.cartWithId : styles.cart}>
-          <Text style={[styles.title, titleColor && {color: titleColor}]}>
-            {title}
-          </Text>
-          <Text style={[styles.description, descriptionStyle]}>{description}</Text>
+                {additoinalText && (
+                  <Text style={styles.additionalText}>{additoinalText}</Text>
+                )}
 
-          {additoinalText && (
-            <Text style={styles.additionalText}>{additoinalText}</Text>
-          )}
+                {additoinalTextTwo && (
+                  <Text style={styles.additionalText}>{additoinalTextTwo}</Text>
+                )}
 
-          {additoinalTextTwo && (
-            <Text style={styles.additionalText}>{additoinalTextTwo}</Text>
-          )}
-          <Text style={styles.linkText}>{linkText}</Text>
-
-          {icon && <SvgImage style={styles.icon} source={icon} />}
-        </Pressable>
+                {linkText && <Text style={styles.linkText}>{linkText}</Text>}
+              </View>
+              {icon && <SvgImage style={styles.icon} source={icon} />}
+            </View>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -91,7 +98,7 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
 
 const styles = StyleSheet.create({
   main: {
-    // marginVertical: 8,
+    marginVertical: 8,
   },
   row: {
     flexDirection: 'row',
@@ -135,26 +142,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.border.bottom,
     borderRadius: 8,
-    height: 'auto',
+  },
+  contentContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  textContainer: {
+    flex: 1,
   },
   title: {
     fontWeight: '500',
     fontSize: 14,
     color: colors.bg.blue,
-    width: 327,
   },
   description: {
     fontSize: 14,
     color: colors.black,
     marginTop: 4,
     fontWeight: '400',
-    width: 324,
   },
   icon: {
-    position: 'absolute',
-    bottom: 0,
-    right: 10,
-    color: colors.bg.blue,
+    marginLeft: 12,
   },
   linkText: {
     color: colors.bg.openBlue,

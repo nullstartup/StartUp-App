@@ -1,5 +1,5 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Header} from '../components/Header';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
@@ -9,7 +9,7 @@ import {SvgImage} from '../components/SvgImage';
 import {Button} from '../components/Button';
 import {FlashList} from '@shopify/flash-list';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
-import {userDetails} from '../mock/ConditonsMock';
+import {advanceInformation, Steps, userDetails} from '../mock/ConditonsMock';
 
 export const UserDetailsScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.userDetails>
@@ -22,6 +22,7 @@ export const UserDetailsScreen: React.FC<
         description={item.description}></ConditionsCart>
     );
   };
+
   return (
     <ScrollView>
       <Header
@@ -32,8 +33,8 @@ export const UserDetailsScreen: React.FC<
         titleColor={colors.white}
         rightActionType="icon"
         right={vectors.human}
-      />{' '}
-      <View style={{marginLeft: 20}}>
+      />
+      <View style={{}}>
         <View style={{alignItems: 'center', marginTop: 21}}>
           <SvgImage source={require('../assets/vectors/check.svg')}></SvgImage>
           <Text style={{color: colors.green.open, fontSize: 16, marginTop: 10}}>
@@ -91,6 +92,39 @@ export const UserDetailsScreen: React.FC<
             <FlashList data={userDetails} renderItem={renderItem}></FlashList>
           </View>
         </View>
+        <View style={styles.appointmentDetails}>
+          <Text style={styles.appointmetHeader}>Next Steps</Text>
+          <View style={styles.appointmentDesc}>
+            <FlashList
+              scrollEnabled={false}
+              data={Steps}
+              renderItem={({
+                item,
+                index,
+              }: {
+                item: IConditionsCart;
+                index: number;
+              }) => {
+                const isLast = index === advanceInformation.length - 1;
+                return (
+                  <ConditionsCart
+                    id={item.id}
+                    titleColor={colors.black}
+                    title={item.title}
+                    description={item.description}
+                    additoinalText={item.additoinalText}
+                    additoinalTextTwo={item.additoinalTextTwo}
+                    linkText={item.linkText}
+                    isLast={isLast}
+                  />
+                );
+              }}
+              keyExtractor={(item, index) =>
+                item.id ? item.id.toString() : index.toString()
+              }
+            />
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
@@ -124,14 +158,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   travelers: {
-    width: 329,
+    width: '90%',
     height: 161,
     gap: 11,
-    marginLeft: 20,
+    alignSelf: 'center',
     marginTop: 20,
   },
   header: {
-    width: 329,
+    width: '100%',
     height: 40,
     backgroundColor: '#F2F2F2',
     flexDirection: 'row',
@@ -145,18 +179,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   travelersDesc: {
-    width: 313,
+    width: '90%',
     height: 17,
     gap: 14,
+    alignSelf: 'center',
   },
   appointmentDetails: {
-    width: 329,
+    width: '90%',
     gap: 11,
-    marginLeft: 20,
+    alignSelf: 'center',
     marginTop: 28,
   },
   appointmetHeader: {
-    width: 329,
+    width: '100%',
     height: 40,
     backgroundColor: '#F2F2F2',
     fontSize: 14,
@@ -164,6 +199,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.bg.blue,
     textAlignVertical: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   appointmentDesc: {
     width: 268,

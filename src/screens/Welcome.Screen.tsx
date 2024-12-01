@@ -24,6 +24,7 @@ export const WelcomeScreen: React.FC<
       style={styles.background}
       source={require('../assets/images/backgroundImage.png')}
       resizeMode="contain">
+        
       <View style={styles.main}>
         <Image
           style={styles.departmentLogo}

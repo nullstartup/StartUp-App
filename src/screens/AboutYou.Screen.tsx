@@ -66,6 +66,7 @@ export const AboutYouScreen: React.FC<
             item.id ? item.id.toString() : index.toString()
           }
         />
+        
       </ScrollView>
       <Modal visible={isLoading} transparent={true} animationType="fade">
         <View style={styles.modalContainer}>

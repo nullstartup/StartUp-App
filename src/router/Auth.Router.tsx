@@ -89,6 +89,8 @@ export const HomeScreenWithDrawer: React.FC<
         title: 'Traveler',
         headerStyle: {backgroundColor: colors.bg.blue},
         headerTitleStyle: {color: colors.white},
+        headerTitleAlign: 'center',
+        headerTintColor: colors.white,
       }}
       drawerContent={props => (
         <DrawerContentScrollView {...props}>

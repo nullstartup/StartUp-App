@@ -49,8 +49,6 @@ export const Conditions: IConditionsCart[] = [
     },
 ];
 
-
-
 export const Traveler: IConditionsCart[] = [
     {
         id: 1,
@@ -142,3 +140,22 @@ export const userDetails = [
         description: '20:00',
     },
 ]
+export const Steps = [
+    {
+        id: 1,
+        title: 'Register Travelers',
+    },
+    {
+        id: 2,
+        title: 'Ask for an Appointment',
+    },
+    {
+        id: 3,
+        title: 'Accept and Schedule an Appointment',
+    },
+    {
+        id: 4,
+        title: 'Arrive at the Port of Entry',
+        description: 'Arrive at the Port of Entry for your scheduled appointment'
+    },
+];

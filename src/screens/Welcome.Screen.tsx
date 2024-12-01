@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  Modal,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {Button} from '../components/Button';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
@@ -21,76 +28,90 @@ export const WelcomeScreen: React.FC<
 
   return (
     <ImageBackground
-      style={styles.background}
-      source={require('../assets/images/backgroundImage.png')}
-      resizeMode="contain">
-        
+      source={require('../assets/images/bgImg.jpg')}
+      resizeMode="contain"
+      style={styles.container}>
       <View style={styles.main}>
         <Image
           style={styles.departmentLogo}
           source={require('../assets/images/departmentLogo.png')}
         />
-
-        {isLoading ? (
+        <Image
+          style={{width: 107, height: 112.56}}
+          source={require('../assets/images/userLogo.png')}
+        />
+        <View style={styles.bottom}>
           <Image
-            style={styles.loadingImage}
-            source={require('../assets/images/departmentLogo.png')}
+            style={{width: 183, height: 27, alignSelf: 'center'}}
+            source={require('../assets/images/welcome.png')}
           />
-        ) : (
-          <>
-            <Image
-              style={{width: 107, height: 112.56}}
-              source={require('../assets/images/userLogo.png')}
+          <Text style={styles.description}>
+            A single portal to multiple CBP services to streamline your
+            experience.
+          </Text>
+          <View style={{marginTop: 16, width: 239, height: 41}}>
+            <Button
+              textColor={colors.white}
+              backgroundColor={colors.red.line}
+              style={styles.button}
+              onPress={navigateToConditions}
+              text="LOGIN OR SIGN UP"
+              width={127}
+              height={17}
             />
-            <View style={styles.bottom}>
-              <Image
-                style={{width: 183, height: 27, alignSelf: 'center'}}
-                source={require('../assets/images/welcome.png')}
-              />
-              <Text style={styles.description}>
-                A single portal to multiple CBP services to streamline your
-                experience.
-              </Text>
-              <View style={{marginTop: 16, width: 239, height: 41}}>
-                <Button
-                  textColor={colors.white}
-                  backgroundColor={colors.red.line}
-                  style={styles.button}
-                  onPress={navigateToConditions}
-                  text="LOGIN OR SIGN UP"
-                  width={127}
-                  height={17}
-                />
-              </View>
-              <Image
-                style={styles.loginText}
-                source={require('../assets/images/login.png')}
-              />
-            </View>
-          </>
-        )}
+          </View>
+          <Image
+            style={styles.loginText}
+            source={require('../assets/images/login.png')}
+          />
+        </View>
+        <Modal visible={isLoading} transparent={true} animationType="fade">
+          <View style={styles.modalContainer}>
+            <Image
+              style={styles.loadingImage}
+              source={require('../assets/images/departmentLogo.png')}
+            />
+          </View>
+        </Modal>
       </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: '#00497C',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FEFEFE9E',
+    width: '100%',
+    height: 28,
+    position: 'absolute',
+    top: 23,
+  },
+  headerText: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: colors.white,
+    width: 'auto',
+    textAlign: 'center',
+    height: 12,
   },
   main: {
     width: 298,
     height: 426,
-    alignItems: 'center',
     borderTopColor: '#CE1C25',
     borderTopWidth: 6,
     borderRadius: 10,
-    borderColor: '#fff',
     backgroundColor: '#fff',
     paddingTop: 59,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   departmentLogo: {
     width: 68,
@@ -122,6 +143,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 56,
     borderRadius: 35,
     backgroundColor: '#CE1C25',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   loadingImage: {
     width: 260,

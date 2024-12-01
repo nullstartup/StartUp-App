@@ -1,5 +1,6 @@
 import {Text, TextInput, View, StyleSheet} from 'react-native';
 import React from 'react';
+import {colors} from '../theme/colors';
 
 interface IInput {
   placeholder?: string;
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   caption: {
     marginBottom: 4,
     fontSize: 14,
-    color: '#00497C',
+    color: colors.black,
   },
   input: {
     borderWidth: 1,

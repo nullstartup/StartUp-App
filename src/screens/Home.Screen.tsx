@@ -28,6 +28,7 @@ export const HomeScreen: React.FC<
   const renderItem = ({item}: {item: IConditionsCart}) => {
     return (
       <ConditionsCart
+        descriptionStyle={{width: 323}}
         titleColor={colors.bg.blue}
         title={item.title}
         description={item.description}

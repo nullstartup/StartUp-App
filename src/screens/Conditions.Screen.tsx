@@ -23,11 +23,15 @@ export const ConditionsScreen: React.FC<
     const isLast = index === advanceInformation.length - 1;
     return (
       <ConditionsCart
+        descriptionStyle={{width: 327}}
         id={item.id}
         titleColor={colors.bg.blue}
         title={item.title}
         description={item.description}
+        linkText={item.linkText}
         isLast={isLast}
+        additoinalText={item.additoinalText}
+        additoinalTextTwo={item.additoinalTextTwo}
       />
     );
   };
@@ -47,73 +51,80 @@ export const ConditionsScreen: React.FC<
         title="Terms & Conditions"
         titleColor={colors.white}
       />
-      <View style={styles.titleView}>
-        <Text style={styles.title}>Welcome to our application!</Text>
-        <Text style={styles.description}>
-          By using this app, you agree to the following terms and conditions:
-        </Text>
-      </View>
-      <ScrollView style={{marginLeft: 20}}>
-        <FlashList
-          scrollEnabled={false}
-          data={Conditions}
-          renderItem={renderItem}
-          keyExtractor={(item, index) =>
-            item.id ? item.id.toString() : index.toString()
-          }
-        />
+      <ScrollView>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Welcome to our application!</Text>
+          <Text style={styles.description}>
+            By using this app, you agree to the following terms and conditions:
+          </Text>
+        </View>
+        <View style={{marginLeft: 20, marginBottom: 20}}>
+          <FlashList
+            scrollEnabled={false}
+            data={Conditions}
+            renderItem={renderItem}
+            keyExtractor={(item, index) =>
+              item.id ? item.id.toString() : index.toString()
+            }
+          />
+        </View>
       </ScrollView>
+
       <View style={styles.buttons}>
         <Button
           width={58}
           height={19}
-          textColor="#0266B3"
+          textColor={colors.bg.openBlue}
           style={styles.button}
           backgroundColor=""
           text="Decline"
-          onPress={() => navigation.goBack()}></Button>
+          onPress={() => navigation.goBack()}
+        />
         <Button
           width={58}
           height={19}
           style={styles.button}
-          backgroundColor="#0266B3"
+          backgroundColor={colors.bg.openBlue}
           text="Accept"
-          textColor="#fff"
-          onPress={toggleModal}></Button>
-        <Modal
-          visible={isModalVisible}
-          transparent={true}
-          animationType="slide">
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalText}>
-                “CBP One” Wants to Use “login.gov” to Sign In
-              </Text>
-              <Text style={{textAlign: 'center'}}>
-                This allows the app and website to share information about you.
-              </Text>
-              <View style={styles.modalButtons}>
-                <Button
-                  style={styles.modalButtonOne}
-                  text="Cancel"
-                  textColor="#0266B3"
-                  onPress={toggleModal}
-                />
-                <Button
-                  textColor="#fff"
-                  backgroundColor="#0266B3"
-                  style={styles.modalButtonTwo}
-                  text="Continue"
-                  onPress={() => {
-                    toggleModal();
-                    setTimeout(() => navigation.navigate(Routes.register), 300);
-                  }}
-                />
-              </View>
+          textColor={colors.white}
+          onPress={toggleModal}
+        />
+      </View>
+      <Modal
+        visible={isModalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={toggleModal}>
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>
+              “CBP One” Wants to Use “login.gov” to Sign In
+            </Text>
+            <Text style={styles.modalMessage}>
+              This allows the app and website to share information about you.
+            </Text>
+            <View style={styles.modalButtons}>
+              <Button
+                text="Cancel"
+                textColor={colors.bg.openBlue}
+                backgroundColor={colors.white}
+                style={[styles.modalButton, styles.cancelButton]}
+                onPress={toggleModal}
+              />
+              <Button
+                text="Continue"
+                textColor={colors.white}
+                backgroundColor={colors.bg.openBlue}
+                style={[styles.modalButton, styles.continueButton]}
+                onPress={() => {
+                  toggleModal();
+                  setTimeout(() => navigation.navigate(Routes.register), 300);
+                }}
+              />
             </View>
           </View>
-        </Modal>
-      </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -127,7 +138,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   title: {
-    color: '#00497C',
+    color: colors.bg.blue,
     fontSize: 20,
     fontWeight: '600',
   },
@@ -145,52 +156,62 @@ const styles = StyleSheet.create({
   },
   button: {
     borderWidth: 1,
-    borderColor: '#0266B3',
+    borderColor: colors.bg.blue,
     borderRadius: 8,
   },
-  modalContainer: {
+  modalOverlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   modalContent: {
     width: 300,
     padding: 20,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: colors.white,
+    borderRadius: 16,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
+    shadowColor: colors.black,
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
     elevation: 5,
   },
-  modalText: {
+  modalTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
+    fontWeight: '600',
+    color: colors.black,
+    marginBottom: 12,
     textAlign: 'center',
   },
-  modalButtonOne: {
-    borderWidth: 1,
-    paddingVertical: 8,
-    paddingHorizontal: 32,
-    borderColor: '#0266B3',
-    fontSize: 12,
+  modalMessage: {
+    fontSize: 14,
     fontWeight: '400',
-  },
-  modalButtonTwo: {
-    borderWidth: 1,
-    paddingVertical: 8,
-    paddingHorizontal: 32,
-    marginLeft: 13,
-    borderColor: '#0266B3',
+    // color: colors.grey,
+    textAlign: 'center',
+    marginBottom: 24,
   },
   modalButtons: {
     flexDirection: 'row',
-    marginTop: 13,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  modalButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 35,
+    borderRadius: 35,
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 'auto',
+    maxWidth: '100%',
+  },
+  cancelButton: {
+    borderWidth: 1,
+    borderColor: colors.bg.openBlue,
+  },
+  continueButton: {
+    backgroundColor: colors.bg.openBlue,
   },
 });
 

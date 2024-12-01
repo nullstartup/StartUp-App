@@ -43,6 +43,9 @@ export const AdvanceInformationScreen: React.FC<
         titleColor={colors.black}
         title={item.title}
         description={item.description}
+        additoinalText={item.additoinalText}
+        additoinalTextTwo={item.additoinalTextTwo}
+        linkText={item.linkText}
         isLast={isLast}
       />
     );
@@ -64,7 +67,7 @@ export const AdvanceInformationScreen: React.FC<
       } else {
         setValidateResult('Captcha Incorrect');
       }
-    }, 2000); // Simulate a loading period
+    }, 2000);
   };
 
   return (
@@ -78,8 +81,10 @@ export const AdvanceInformationScreen: React.FC<
         rightActionType="icon"
         right={vectors.human}
       />
-      <Text style={styles.text}>INSTRUCTIONS</Text>
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{left: -10, marginTop: 20}}>
+        <Text style={styles.text}>INSTRUCTIONS</Text>
         <FlashList
           scrollEnabled={false}
           data={advanceInformation}
@@ -149,6 +154,7 @@ const styles = StyleSheet.create({
     color: colors.bg.blue,
     paddingTop: 18,
     marginLeft: 20,
+    paddingBottom: 20,
   },
   button: {
     borderRadius: 8,

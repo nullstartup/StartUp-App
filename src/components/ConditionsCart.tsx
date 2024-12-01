@@ -12,14 +12,18 @@ import {SvgImage} from './SvgImage';
 import {colors} from '../theme/colors';
 
 export interface IConditionsCart {
-  id?: number; // ID opsiyonel
-  title: string;
+  id?: number;
+  title?: string;
   description: string;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   icon?: SvgProps;
   titleColor?: string;
-  isLast?: boolean; // Son eleman mı kontrolü
+  isLast?: boolean;
+  linkText?: string;
+  additoinalText?: string;
+  additoinalTextTwo?: string;
+  descriptionStyle?: StyleProp<ViewStyle>; 
 }
 
 export const ConditionsCart: React.FC<IConditionsCart> = ({
@@ -31,6 +35,10 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
   icon,
   titleColor,
   isLast = false,
+  linkText,
+  additoinalText,
+  additoinalTextTwo,
+  descriptionStyle, 
 }) => {
   const [cartHeight, setCartHeight] = useState(0);
 
@@ -63,7 +71,17 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
           <Text style={[styles.title, titleColor && {color: titleColor}]}>
             {title}
           </Text>
-          <Text style={styles.description}>{description}</Text>
+          <Text style={[styles.description, descriptionStyle]}>{description}</Text>
+
+          {additoinalText && (
+            <Text style={styles.additionalText}>{additoinalText}</Text>
+          )}
+
+          {additoinalTextTwo && (
+            <Text style={styles.additionalText}>{additoinalTextTwo}</Text>
+          )}
+          <Text style={styles.linkText}>{linkText}</Text>
+
           {icon && <SvgImage style={styles.icon} source={icon} />}
         </Pressable>
       </View>
@@ -123,19 +141,31 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     color: colors.bg.blue,
+    width: 327,
   },
   description: {
-    fontSize: 12,
+    fontSize: 14,
     color: colors.black,
     marginTop: 4,
     fontWeight: '400',
     width: 324,
-    height: 45,
   },
   icon: {
     position: 'absolute',
     bottom: 0,
     right: 10,
     color: colors.bg.blue,
+  },
+  linkText: {
+    color: colors.bg.openBlue,
+    fontSize: 14,
+    marginTop: 4,
+    fontWeight: '400',
+  },
+  additionalText: {
+    color: colors.black,
+    fontSize: 14,
+    marginTop: 24,
+    fontWeight: '400',
   },
 });

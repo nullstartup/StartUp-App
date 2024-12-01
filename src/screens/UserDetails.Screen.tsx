@@ -33,57 +33,63 @@ export const UserDetailsScreen: React.FC<
         rightActionType="icon"
         right={vectors.human}
       />{' '}
-      <View style={{alignItems: 'center', marginTop: 21}}>
-        <SvgImage source={require('../assets/vectors/check.svg')}></SvgImage>
-        <Text style={{color: colors.green.open, fontSize: 16, marginTop: 10}}>
-          APPOINTMENT SCHEDULED
-        </Text>
-        <Text style={styles.description}>
-          Your appointment is scheduled: Garita El Chaparra / Pedwest San Ysidro
-          on 15 Nov 2024 at 20:00.
-        </Text>
-      </View>
-      <View style={styles.bottomText}>
-        <Text style={styles.text}>
-          Your appointment ay a Port of Entry was successfully scheduled.
-        </Text>
-        <Text style={[styles.text, {marginLeft: 20}]}>
-          Please save your confirmation number(s). A confirmation email was sent
-          to the email address you used to log in to CBP One.
-        </Text>
-      </View>
-      <Button
-        style={styles.button}
-        text="CANCEL APPOINTMENT"
-        textColor={colors.red.line}></Button>
-      <View style={styles.travelers}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Travelers</Text>
-          <Text style={styles.headerText}>Confirmation Number</Text>
+      <View style={{marginLeft: 20}}>
+        <View style={{alignItems: 'center', marginTop: 21}}>
+          <SvgImage source={require('../assets/vectors/check.svg')}></SvgImage>
+          <Text style={{color: colors.green.open, fontSize: 16, marginTop: 10}}>
+            APPOINTMENT SCHEDULED
+          </Text>
+          <Text style={styles.description}>
+            Your appointment is scheduled: Garita El Chaparra / Pedwest San
+            Ysidro on 15 Nov 2024 at 20:00.
+          </Text>
         </View>
-        <View style={styles.travelersDesc}>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text>Tural Hasanov</Text>
-            <Text>20587913</Text>
+        <View style={styles.bottomText}>
+          <Text style={styles.text}>
+            Your appointment ay a Port of Entry was successfully scheduled.
+          </Text>
+          <Text style={[styles.text, {marginLeft: 20}]}>
+            Please save your confirmation number(s). A confirmation email was
+            sent to the email address you used to log in to CBP One.
+          </Text>
+        </View>
+        <Button
+          style={styles.button}
+          text="CANCEL APPOINTMENT"
+          textColor={colors.red.line}></Button>
+        <View style={styles.travelers}>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Travelers</Text>
+            <Text style={styles.headerText}>Confirmation Number</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text>Nurlana Kazimova</Text>
-            <Text>20587914</Text>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text>Davin Hasanov</Text>
-            <Text>20587915</Text>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text>Milana Hasanova</Text>
-            <Text>20587916</Text>
+          <View style={styles.travelersDesc}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text>Tural Hasanov</Text>
+              <Text>20587913</Text>
+            </View>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text>Nurlana Kazimova</Text>
+              <Text>20587914</Text>
+            </View>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text>Davin Hasanov</Text>
+              <Text>20587915</Text>
+            </View>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text>Milana Hasanova</Text>
+              <Text>20587916</Text>
+            </View>
           </View>
         </View>
-      </View>
-      <View style={styles.appointmentDetails}>
-        <Text style={styles.appointmetHeader}>Appointment Details</Text>
-        <View style={styles.appointmentDesc}>
-          <FlashList data={userDetails} renderItem={renderItem}></FlashList>
+        <View style={styles.appointmentDetails}>
+          <Text style={styles.appointmetHeader}>Appointment Details</Text>
+          <View style={styles.appointmentDesc}>
+            <FlashList data={userDetails} renderItem={renderItem}></FlashList>
+          </View>
         </View>
       </View>
     </ScrollView>

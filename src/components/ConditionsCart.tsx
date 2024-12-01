@@ -23,7 +23,7 @@ export interface IConditionsCart {
   linkText?: string;
   additoinalText?: string;
   additoinalTextTwo?: string;
-  descriptionStyle?: StyleProp<ViewStyle>; // Yeni prop eklendi
+  descriptionStyle?: StyleProp<ViewStyle>; 
 }
 
 export const ConditionsCart: React.FC<IConditionsCart> = ({
@@ -38,7 +38,7 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
   linkText,
   additoinalText,
   additoinalTextTwo,
-  descriptionStyle, // Yeni prop destructure edildi
+  descriptionStyle, 
 }) => {
   const [cartHeight, setCartHeight] = useState(0);
 

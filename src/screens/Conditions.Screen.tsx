@@ -90,8 +90,6 @@ export const ConditionsScreen: React.FC<
           onPress={toggleModal}
         />
       </View>
-
-      {/* Modernized Modal Design */}
       <Modal
         visible={isModalVisible}
         transparent={true}
@@ -99,7 +97,9 @@ export const ConditionsScreen: React.FC<
         onRequestClose={toggleModal}>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Sign In with login.gov</Text>
+            <Text style={styles.modalTitle}>
+              “CBP One” Wants to Use “login.gov” to Sign In
+            </Text>
             <Text style={styles.modalMessage}>
               This allows the app and website to share information about you.
             </Text>
@@ -159,13 +159,11 @@ const styles = StyleSheet.create({
     borderColor: colors.bg.blue,
     borderRadius: 8,
   },
-
-  // New Modal Styles
   modalOverlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Darker overlay for focus
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   modalContent: {
     width: 300,
@@ -182,7 +180,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: colors.bg.blue,
+    color: colors.black,
     marginBottom: 12,
     textAlign: 'center',
   },

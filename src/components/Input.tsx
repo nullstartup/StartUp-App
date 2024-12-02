@@ -21,6 +21,7 @@ export const Input: React.FC<IInput> = ({
       <TextInput
         style={styles.input}
         placeholder={placeholder}
+        placeholderTextColor="#000"
         value={value}
         onChangeText={onChangeText}
       />
@@ -45,5 +46,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: '100%',
     height: 47,
+    color: '#000',
   },
 });

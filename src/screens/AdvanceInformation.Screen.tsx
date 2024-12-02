@@ -83,7 +83,7 @@ export const AdvanceInformationScreen: React.FC<
       />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{left: -10, marginTop: 20}}>
+        style={{left:20,marginTop: 20}}>
         <Text style={styles.text}>INSTRUCTIONS</Text>
         <FlashList
           scrollEnabled={false}

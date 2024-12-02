@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
 import {Header} from '../components/Header';
 import {Radio} from '../components/Radio';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {colors} from '../theme/colors';
+import {Button} from '../components/Button';
 
 export const SelectTravelScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.selectTravel>
@@ -47,8 +48,19 @@ export const SelectTravelScreen: React.FC<
         options={options}
         checkedValue={selectedValue}
         onChange={setSelectedValue}
-        onPress={() => navigation.navigate(Routes.home)}
+        // onPress={() => navigation.navigate(Routes.home)}
       />
+      <View style={styles.buttonContainer}>
+        <Button
+          style={styles.button}
+          width={328}
+          height={44}
+          text="Continue"
+          textColor={colors.white}
+          backgroundColor={colors.bg.blue}
+          onPress={() => navigation.navigate(Routes.home)}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -62,6 +74,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     margin: 16,
+  },
+  buttonContainer: {
+    flexGrow: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 16,
+  },
+  button: {
+    borderRadius: 8,
+    width: 328,
+    alignSelf: 'center',
+    marginTop: 20,
   },
 });
 

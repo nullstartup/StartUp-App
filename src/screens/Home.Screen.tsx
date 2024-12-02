@@ -33,8 +33,7 @@ export const HomeScreen: React.FC<
         title={item.title}
         description={item.description}
         onPress={handlePress}
-        style={{marginTop: 15}}
-        icon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
+        style={{marginTop: 15}}></ConditionsCart>
     );
   };
 

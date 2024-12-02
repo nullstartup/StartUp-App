@@ -83,6 +83,7 @@ export const RegisterScreen: React.FC<
           <View>
             <Input caption="Email address" placeholder="Email*" />
             <TextInput
+              placeholderTextColor={colors.black}
               style={styles.input}
               placeholder="Password*"
               secureTextEntry={!showPassword}

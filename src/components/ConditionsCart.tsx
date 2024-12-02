@@ -62,12 +62,14 @@ export const ConditionsCart: React.FC<IConditionsCart> = ({
               <View style={[styles.line, {height: cartHeight - 24}]} />
             )}
           </View>
+        ) : icon ? (
+          <SvgImage style={styles.icon} source={icon} />
         ) : null}
         <View style={{flex: 1}}>
           <Pressable
             onLayout={handleLayout}
             onPress={onPress}
-            style={id ? styles.cartWithId : styles.cart}>
+            style={id || icon ? styles.cartWithId : styles.cart}>
             <View style={styles.contentContainer}>
               <View style={styles.textContainer}>
                 <Text style={[styles.title, titleColor && {color: titleColor}]}>
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.black,
-    marginLeft: 30,
+    // marginLeft: 30,
   },
   id: {
     fontSize: 14,
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     width: 2,
     backgroundColor: colors.border.bottom,
     marginTop: 4,
-    marginLeft: 30,
+    // marginLeft: 30,
   },
   cart: {
     padding: 10,
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
   },
   cartWithId: {
     padding: 10,
-    width: 280,
+    width: 328,
     borderBottomWidth: 1,
     borderBottomColor: colors.border.bottom,
     borderRadius: 8,
@@ -147,9 +149,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingRight: 16,
   },
   textContainer: {
     flex: 1,
+    marginRight: 40,
+    bottom: 10,
   },
   title: {
     fontWeight: '500',
@@ -163,7 +168,8 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   icon: {
-    marginLeft: 12,
+    width: 24,
+    height: 24,
   },
   linkText: {
     color: colors.bg.openBlue,

@@ -9,7 +9,7 @@ import {SvgImage} from '../components/SvgImage';
 import {Button} from '../components/Button';
 import {FlashList} from '@shopify/flash-list';
 import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
-import {advanceInformation, Steps, userDetails} from '../mock/ConditonsMock';
+import {Steps, userDetails} from '../mock/ConditonsMock';
 
 export const UserDetailsScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.userDetails>
@@ -105,10 +105,11 @@ export const UserDetailsScreen: React.FC<
                 item: IConditionsCart;
                 index: number;
               }) => {
-                const isLast = index === advanceInformation.length - 1;
+                const isLast = index === Steps.length - 1; 
                 return (
                   <ConditionsCart
                     id={item.id}
+                    icon={item.icon} 
                     titleColor={colors.black}
                     title={item.title}
                     description={item.description}

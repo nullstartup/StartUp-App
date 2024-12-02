@@ -66,15 +66,15 @@ export const UserDetailsScreen: React.FC<
           <View style={styles.travelersDesc}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Tural Hasanov</Text>
-              <Text>20587913</Text>
+              <Text>Huseyn Huseynov</Text>
+              <Text>20587233</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Nurlana Kazimova</Text>
-              <Text>20587914</Text>
+              <Text>Huseyn Huseynov</Text>
+              <Text>20587934</Text>
             </View>
-            <View
+            {/* <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Davin Hasanov</Text>
               <Text>20587915</Text>
@@ -83,7 +83,7 @@ export const UserDetailsScreen: React.FC<
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Milana Hasanova</Text>
               <Text>20587916</Text>
-            </View>
+            </View> */}
           </View>
         </View>
         <View style={styles.appointmentDetails}>

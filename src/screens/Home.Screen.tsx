@@ -28,12 +28,13 @@ export const HomeScreen: React.FC<
   const renderItem = ({item}: {item: IConditionsCart}) => {
     return (
       <ConditionsCart
-        descriptionStyle={{width: 323}}
+        // descriptionStyle={{width:}}
         titleColor={colors.bg.blue}
         title={item.title}
         description={item.description}
         onPress={handlePress}
-        style={{marginTop: 15}}></ConditionsCart>
+        style={{marginTop: 15}}
+        rightIcon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
     );
   };
 

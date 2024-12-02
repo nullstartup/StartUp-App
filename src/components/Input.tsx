@@ -1,4 +1,11 @@
-import {Text, TextInput, View, StyleSheet} from 'react-native';
+import {
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
 import React from 'react';
 import {colors} from '../theme/colors';
 
@@ -7,6 +14,8 @@ interface IInput {
   value?: string;
   onChangeText?: (text: string) => void;
   caption?: string;
+  style?: StyleProp<ViewStyle>;
+  secureTextEntry?: boolean; 
 }
 
 export const Input: React.FC<IInput> = ({
@@ -14,9 +23,11 @@ export const Input: React.FC<IInput> = ({
   value,
   onChangeText,
   caption,
+  style,
+  secureTextEntry,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {caption && <Text style={styles.caption}>{caption}</Text>}
       <TextInput
         style={styles.input}
@@ -24,6 +35,7 @@ export const Input: React.FC<IInput> = ({
         placeholderTextColor="#000"
         value={value}
         onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry} 
       />
     </View>
   );

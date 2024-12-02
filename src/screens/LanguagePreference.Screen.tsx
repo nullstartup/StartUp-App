@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   text: {
-    fontSize: 16,
-    fontWeight: '500',
+    fontSize: 15,
+    fontWeight: '400',
   },
   texts: {
-    gap: 15,
+    gap: 10,
     marginTop: 19,
     alignSelf: 'center',
     borderBottomWidth: 1,

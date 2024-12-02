@@ -105,11 +105,11 @@ export const UserDetailsScreen: React.FC<
                 item: IConditionsCart;
                 index: number;
               }) => {
-                const isLast = index === Steps.length - 1; 
+                const isLast = index === Steps.length - 1;
                 return (
                   <ConditionsCart
                     id={item.id}
-                    icon={item.icon} 
+                    icon={item.icon}
                     titleColor={colors.black}
                     title={item.title}
                     description={item.description}

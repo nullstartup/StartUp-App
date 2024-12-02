@@ -143,14 +143,17 @@ export const userDetails = [
 export const Steps = [
     {
         icon: require('../assets/vectors/done.svg'),
+        // id:1,
         title: 'Register Travelers',
     },
     {
         icon: require('../assets/vectors/done.svg'),
+        // id:2,
         title: 'Ask for an Appointment',
     },
     {
         icon: require('../assets/vectors/done.svg'),
+        // id:3,
         title: 'Accept and Schedule an Appointment',
     },
     {

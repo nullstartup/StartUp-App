@@ -4,7 +4,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
   Modal,
   Dimensions,
@@ -82,9 +81,8 @@ export const RegisterScreen: React.FC<
           <Text style={styles.formTitle}>Sign in for existing users</Text>
           <View>
             <Input caption="Email address" placeholder="Email*" />
-            <TextInput
-              placeholderTextColor={colors.black}
-              style={styles.input}
+            <Input
+              caption="Password"
               placeholder="Password*"
               secureTextEntry={!showPassword}
             />
@@ -241,14 +239,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 10,
   },
-  input: {
-    height: 50,
-    borderColor: colors.border.bottom,
-    borderWidth: 2,
-    borderRadius: 8,
-    marginBottom: 15,
-    paddingLeft: 10,
-  },
+  // input: {
+  //   height: 50,
+  //   borderColor: colors.border.bottom,
+  //   borderRadius: 8,
+  //   marginBottom: 15,
+  // },
   showPasswordContainer: {
     flexDirection: 'row',
     alignItems: 'center',

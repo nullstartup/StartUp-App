@@ -52,13 +52,7 @@ export const ConditionsScreen: React.FC<
         titleColor={colors.white}
       />
       <ScrollView>
-        <View style={styles.titleView}>
-          <Text style={styles.title}>Welcome to our application!</Text>
-          <Text style={styles.description}>
-            By using this app, you agree to the following terms and conditions:
-          </Text>
-        </View>
-        <View style={{marginLeft: 20, marginBottom: 20}}>
+        <View style={{marginBottom: 20}}>
           <FlashList
             scrollEnabled={false}
             data={Conditions}
@@ -187,7 +181,6 @@ const styles = StyleSheet.create({
   modalMessage: {
     fontSize: 14,
     fontWeight: '400',
-    // color: colors.grey,
     textAlign: 'center',
     marginBottom: 24,
   },

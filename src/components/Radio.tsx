@@ -38,10 +38,12 @@ export const Radio: React.FC<IRadio> = ({
               onChange(option.value);
               if (onPress) onPress(option.value);
             }}>
-            <Image source={option.image} style={styles.image} />
-
-            <Text style={styles.text}>{option.label}</Text>
-
+            {option.image && (
+              <Image source={option.image} style={styles.image} />
+            )}
+            <Text style={[styles.text, !option.image && styles.textFullWidth]}>
+              {option.label}
+            </Text>
             <View style={styles.circle}>
               {isActive && <View style={styles.innerCircle} />}
             </View>
@@ -71,16 +73,19 @@ const styles = StyleSheet.create({
     // backgroundColor: '#e0f7fa',
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 60,
+    height: 60,
     borderRadius: 20,
   },
   text: {
     flex: 1,
     fontSize: 14,
-    marginLeft: 10,
+    marginLeft: 16,
     color: '#333333',
     fontWeight: '500',
+  },
+  textFullWidth: {
+    marginLeft: 50,
   },
   circle: {
     height: 24,

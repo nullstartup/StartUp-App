@@ -72,28 +72,23 @@ export const Traveler: IConditionsCart[] = [
     },
     {
         id: 5,
-        title: "Submit Advance Information |  Enviar Información Anticipada",
-        description: 'Submit your information before your arrival to a southwest Port of Entry. This is for undocumented noncitizen travelers. Envie su información antes de su llegada a un puerto de entrada suroeste. Esto es para los viajeros no ciudadanos sin documentos.'
+        title: "View My Travel History",
+        description: "View your U.S arrival and departure history for the past 5 years"
     },
     {
         id: 6,
-        title: "Report My Departure",
-        description: 'Report your departure from the United States by land to fulfill your 1-94 requirements.'
+        title: "View My Compliance",
+        description: "View your compliance with the terms of your admission into the U.S which includes your date of arrival and departure"
     },
     {
         id: 7,
-        title: "Apply for 1-94 in Advance",
-        description: 'Apply for an 1-94 in advance to save time at your next border crossing.'
+        title: "Check Border Wait Times",
+        description: "Check estimated wait times and open lane status 24/7 at land ports of entry"
     },
     {
         id: 8,
-        title: "Get My Recent 1-94",
-        description: 'Need proof of visitor status? Click to retrievec urrent l-94s.'
-    },
-    {
-        id: 9,
-        title: "Changes to Terms",
-        description: "We may update these terms from time to time. Please review them periodically."
+        title: "Report My Arrival",
+        description: "Submit a report of arrival to streamline your process with CBP rules and regulations"
     },
 ]
 

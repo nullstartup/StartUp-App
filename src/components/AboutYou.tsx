@@ -11,7 +11,7 @@ import {
 
 export interface IAboutYou {
   id?: number;
-  
+
   image?: React.FC<SvgProps> | ImageSourcePropType;
   choice?: string;
   onPress?: () => void;
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: 275,
-    height: 50,
     paddingHorizontal: 10,
   },
   imageContainer: {
@@ -50,8 +49,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 70,
+    height: 70,
     resizeMode: 'contain',
     marginRight: 10,
   },

@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: '400',
     margin: 16,
   },
   buttonContainer: {

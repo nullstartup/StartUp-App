@@ -57,7 +57,7 @@ export const AboutYouScreen: React.FC<
           </Text>
         </View>
       </View>
-      <ScrollView style={{flex: 1, marginLeft: 10}}>
+      <ScrollView style={{flex: 1, marginLeft: 10,marginTop:20}}>
         <FlatList
           scrollEnabled={false}
           data={About}
@@ -72,7 +72,7 @@ export const AboutYouScreen: React.FC<
         <View style={styles.modalContainer}>
           <Image
             style={styles.loadingImage}
-            source={require('../assets/images/departmentLogo.png')}
+            source={require('../assets/images/output.png')}
           />
         </View>
       </Modal>

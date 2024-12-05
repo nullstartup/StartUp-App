@@ -59,7 +59,7 @@ export const HomeScreen: React.FC<
         <View style={styles.modalContainer}>
           <Image
             style={styles.loadingImage}
-            source={require('../assets/images/departmentLogo.png')}
+            source={require('../assets/images/output.png')}
           />
         </View>
       </Modal>

@@ -69,7 +69,7 @@ export const WelcomeScreen: React.FC<
           <View style={styles.modalContainer}>
             <Image
               style={styles.loadingImage}
-              source={require('../assets/images/departmentLogo.png')}
+              source={require('../assets/images/output.png')}
             />
           </View>
         </Modal>
@@ -152,5 +152,6 @@ const styles = StyleSheet.create({
   loadingImage: {
     width: 260,
     height: 260,
+    backgroundColor: 'transparent',
   },
 });

@@ -44,16 +44,17 @@ export const UserDetailsScreen: React.FC<
             Your appointment is scheduled: Garita El Chaparra / Pedwest San
             Ysidro on 15 Nov 2024 at 20:00.
           </Text>
+          <View style={styles.bottomText}>
+            <Text style={styles.text}>
+              Your appointment ay a Port of Entry was successfully scheduled.
+            </Text>
+            <Text style={[styles.text, {marginLeft: 20}]}>
+              Please save your confirmation number(s). A confirmation email was
+              sent to the email address you used to log in to CBP One.
+            </Text>
+          </View>
         </View>
-        <View style={styles.bottomText}>
-          <Text style={styles.text}>
-            Your appointment ay a Port of Entry was successfully scheduled.
-          </Text>
-          <Text style={[styles.text, {marginLeft: 20}]}>
-            Please save your confirmation number(s). A confirmation email was
-            sent to the email address you used to log in to CBP One.
-          </Text>
-        </View>
+
         <Button
           style={styles.button}
           text="CANCEL APPOINTMENT"
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
   },
   bottomText: {
     gap: 20,
-    marginTop: 27,
+    marginTop: 30,
     width: 329,
     height: 102,
     alignItems: 'center',

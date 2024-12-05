@@ -87,7 +87,7 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('/Users/ali/StartUpApp/android/app/startup.jks')
+            storeFile file('/Users/ali/StartUp-App/android/app/startup.jks')
             storePassword '123456' 
             keyAlias 'startup-key-alias' 
             keyPassword '123456' 

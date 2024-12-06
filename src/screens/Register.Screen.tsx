@@ -17,6 +17,7 @@ import {Routes} from '../router/routes';
 import {colors} from '../theme/colors';
 import {SvgImage} from '../components/SvgImage';
 import {Input} from '../components/Input';
+import FastImage from 'react-native-fast-image';
 
 export const RegisterScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.register>
@@ -180,10 +181,11 @@ export const RegisterScreen: React.FC<
       </View>
       <Modal visible={isLoading} transparent={true} animationType="fade">
         <View style={styles.modalContainer}>
-          <Image
+          <FastImage
             style={styles.loadingImage}
             source={require('../assets/images/loadingLogo.gif')}
-            />
+            resizeMode={FastImage.resizeMode.contain}
+          />
         </View>
       </Modal>
     </ScrollView>

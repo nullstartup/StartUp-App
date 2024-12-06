@@ -7,7 +7,6 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import {Header} from '../components/Header';
 import {colors} from '../theme/colors';
@@ -19,6 +18,7 @@ import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {Button} from '../components/Button';
 import Captcha, {CaptchaRef} from 'react-native-simple-text-captcha';
+import FastImage from 'react-native-fast-image';
 
 export const AdvanceInformationScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.advanceInformation>
@@ -83,7 +83,7 @@ export const AdvanceInformationScreen: React.FC<
       />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{left:20,marginTop: 20}}>
+        style={{left: 20, marginTop: 20}}>
         <Text style={styles.text}>INSTRUCTIONS</Text>
         <FlashList
           scrollEnabled={false}
@@ -109,9 +109,10 @@ export const AdvanceInformationScreen: React.FC<
         onRequestClose={() => setModalVisible(false)}>
         <View style={styles.modalContainer}>
           {loading ? (
-            <Image
+            <FastImage
               style={styles.loadingImage}
               source={require('../assets/images/loadingLogo.gif')}
+              resizeMode={FastImage.resizeMode.contain}
             />
           ) : (
             <View style={styles.modalContent}>

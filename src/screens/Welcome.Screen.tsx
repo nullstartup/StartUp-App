@@ -12,6 +12,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {colors} from '../theme/colors';
+import FastImage from 'react-native-fast-image';
 
 export const WelcomeScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.welcome>
@@ -67,9 +68,10 @@ export const WelcomeScreen: React.FC<
         </View>
         <Modal visible={isLoading} transparent={true} animationType="fade">
           <View style={styles.modalContainer}>
-            <Image
+            <FastImage
               style={styles.loadingImage}
               source={require('../assets/images/loadingLogo.gif')}
+              resizeMode={FastImage.resizeMode.contain}
             />
           </View>
         </Modal>

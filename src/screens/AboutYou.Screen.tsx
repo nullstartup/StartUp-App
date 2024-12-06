@@ -16,6 +16,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {colors} from '../theme/colors';
+import FastImage from 'react-native-fast-image';
 
 export const AboutYouScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.aboutYou>
@@ -27,7 +28,7 @@ export const AboutYouScreen: React.FC<
     setTimeout(() => {
       setIsLoading(false);
       navigation.navigate(Routes.selectTravel);
-    }, 2000); 
+    }, 2000);
   };
 
   const renderItem = ({item}: {item: IAboutYou}) => (
@@ -48,16 +49,14 @@ export const AboutYouScreen: React.FC<
         source={require('../assets/images/userLogoTwo.png')}
       />
       <View style={styles.line}></View>
-      <View style={styles.bottom}>
-        <View style={{width: 330, height: 78, marginTop: 13}}>
-          <Text style={styles.title}>I am a... | Soy un...</Text>
-          <Text style={styles.description}>
-            Please select from the options provided below. | Por favor
-            seleccione una de las opciones a continuacion.
-          </Text>
-        </View>
+      <View style={styles.top}>
+        <Text style={styles.title}>I am a... | Soy un...</Text>
+        <Text style={styles.description}>
+          Please select from the options provided below. | Por favor seleccione
+          una de las opciones a continuacion.
+        </Text>
       </View>
-      <ScrollView style={{flex: 1, marginLeft: 10,marginTop:20}}>
+      <ScrollView style={{flex: 1, marginLeft: 10, width: 275, height: 349}}>
         <FlatList
           scrollEnabled={false}
           data={About}
@@ -66,14 +65,14 @@ export const AboutYouScreen: React.FC<
             item.id ? item.id.toString() : index.toString()
           }
         />
-        
       </ScrollView>
       <Modal visible={isLoading} transparent={true} animationType="fade">
         <View style={styles.modalContainer}>
-          <Image
+          <FastImage
             style={styles.loadingImage}
             source={require('../assets/images/loadingLogo.gif')}
-            />
+            resizeMode={FastImage.resizeMode.contain}
+          />
         </View>
       </Modal>
     </View>
@@ -92,7 +91,6 @@ const styles = StyleSheet.create({
   },
   bottom: {
     alignItems: 'center',
-    paddingHorizontal: 10,
   },
   title: {
     fontSize: 16,
@@ -115,6 +113,12 @@ const styles = StyleSheet.create({
   loadingImage: {
     width: 260,
     height: 260,
+  },
+  top: {
+    width: 330,
+    height: 78,
+    marginTop: 13,
+    alignSelf: 'center',
   },
 });
 const vectors = {

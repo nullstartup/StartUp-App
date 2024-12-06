@@ -150,7 +150,6 @@ export const UserDetailsScreen: React.FC<
 const styles = StyleSheet.create({
   description: {
     width: 280,
-    height: 51,
     fontSize: 14,
     color: colors.gray.open,
     textAlign: 'center',

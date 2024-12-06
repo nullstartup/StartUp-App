@@ -56,7 +56,7 @@ export const AboutYouScreen: React.FC<
           una de las opciones a continuacion.
         </Text>
       </View>
-      <ScrollView style={{flex: 1, marginLeft: 10, width: 275, height: 349}}>
+      <ScrollView style={{marginLeft: 10}}>
         <FlatList
           scrollEnabled={false}
           data={About}
@@ -100,8 +100,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     fontWeight: '400',
-    width: 330,
-    height: 51,
     marginTop: 8,
   },
   modalContainer: {
@@ -116,7 +114,7 @@ const styles = StyleSheet.create({
   },
   top: {
     width: 330,
-    height: 78,
+    height: 98,
     marginTop: 13,
     alignSelf: 'center',
   },

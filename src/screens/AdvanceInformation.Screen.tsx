@@ -111,7 +111,7 @@ export const AdvanceInformationScreen: React.FC<
           {loading ? (
             <Image
               style={styles.loadingImage}
-              source={require('../assets/images/output.png')}
+              source={require('../assets/images/loadingLogo.gif')}
             />
           ) : (
             <View style={styles.modalContent}>

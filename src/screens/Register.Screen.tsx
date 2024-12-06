@@ -182,8 +182,8 @@ export const RegisterScreen: React.FC<
         <View style={styles.modalContainer}>
           <Image
             style={styles.loadingImage}
-            source={require('../assets/images/output.png')}
-          />
+            source={require('../assets/images/loadingLogo.gif')}
+            />
         </View>
       </Modal>
     </ScrollView>

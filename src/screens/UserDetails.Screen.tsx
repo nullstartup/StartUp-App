@@ -67,23 +67,23 @@ export const UserDetailsScreen: React.FC<
           <View style={styles.travelersDesc}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Tural Hasanov</Text>
-              <Text>20587913</Text>
+              <Text>Hasan Hasanov</Text>
+              <Text>20465023</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Nurlana Kazimova</Text>
-              <Text>20587914</Text>
+              <Text>Elxan Asadov</Text>
+              <Text>20465024</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Davin Hasanov</Text>
-              <Text>20587915</Text>
+              <Text>Bugra Erdogan</Text>
+              <Text>20465025</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Milana Hasanova</Text>
-              <Text>20587916</Text>
+              <Text>Davud Huseynov</Text>
+              <Text>20465026</Text>
             </View>
           </View>
         </View>

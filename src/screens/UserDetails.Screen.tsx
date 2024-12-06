@@ -194,7 +194,6 @@ const styles = StyleSheet.create({
   },
   travelersDesc: {
     width: '90%',
-    height: 17,
     gap: 14,
     alignSelf: 'center',
   },

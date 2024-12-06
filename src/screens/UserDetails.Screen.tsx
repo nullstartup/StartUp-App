@@ -34,21 +34,36 @@ export const UserDetailsScreen: React.FC<
         rightActionType="icon"
         right={vectors.human}
       />
-      <View style={{}}>
-        <View style={{alignItems: 'center', marginTop: 21}}>
-          <SvgImage source={require('../assets/vectors/check.svg')}></SvgImage>
-          <Text style={{color: colors.green.open, fontSize: 16, marginTop: 10}}>
-            APPOINTMENT SCHEDULED
-          </Text>
-          <Text style={styles.description}>
-            Your appointment is scheduled: Garita El Chaparra / Pedwest San
-            Ysidro on 15 Nov 2024 at 20:00.
-          </Text>
-          <View style={styles.bottomText}>
+      <View style={{alignItems:"center"}}>
+        <View
+          style={{
+            width: 329,
+            height: 341,
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              alignItems: 'center',
+              marginTop: 21,
+              width: 280,
+              height: 141,
+            }}>
+            <SvgImage
+              source={require('../assets/vectors/check.svg')}></SvgImage>
+            <Text
+              style={{color: colors.green.open, fontSize: 16, marginTop: 10}}>
+              APPOINTMENT SCHEDULED
+            </Text>
+            <Text style={styles.description}>
+              Your appointment is scheduled: Garita El Chaparra / Pedwest San
+              Ysidro on 15 Nov 2024 at 20:00.
+            </Text>
+          </View>
+          <View style={[styles.bottomText, {width: 329, height: 102}]}>
             <Text style={styles.text}>
               Your appointment ay a Port of Entry was successfully scheduled.
             </Text>
-            <Text style={[styles.text, {marginLeft: 20}]}>
+            <Text style={styles.text}>
               Please save your confirmation number(s). A confirmation email was
               sent to the email address you used to log in to CBP One.
             </Text>
@@ -67,23 +82,23 @@ export const UserDetailsScreen: React.FC<
           <View style={styles.travelersDesc}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Tural Hasanov</Text>
-              <Text>20587913</Text>
+              <Text>Hasan Hasanov</Text>
+              <Text>20465023</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Nurlana Kazimova</Text>
-              <Text>20587914</Text>
+              <Text>Elxan Asadov</Text>
+              <Text>20465024</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Davin Hasanov</Text>
-              <Text>20587915</Text>
+              <Text>Bugra Erdogan</Text>
+              <Text>20465025</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text>Milana Hasanova</Text>
-              <Text>20587916</Text>
+              <Text>Davud Huseynov</Text>
+              <Text>20465026</Text>
             </View>
           </View>
         </View>
@@ -135,7 +150,6 @@ export const UserDetailsScreen: React.FC<
 const styles = StyleSheet.create({
   description: {
     width: 280,
-    height: 51,
     fontSize: 14,
     color: colors.gray.open,
     textAlign: 'center',
@@ -151,13 +165,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: 329,
     height: 102,
-    alignItems: 'center',
   },
   button: {
     borderRadius: 8,
     width: 328,
     alignSelf: 'center',
-    marginTop: 20,
   },
   travelers: {
     width: '90%',

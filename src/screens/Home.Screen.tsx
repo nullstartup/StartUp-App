@@ -29,12 +29,11 @@ export const HomeScreen: React.FC<
   const renderItem = ({item}: {item: IConditionsCart}) => {
     return (
       <ConditionsCart
-        // descriptionStyle={{width:}}
         titleColor={colors.bg.blue}
         title={item.title}
         description={item.description}
         onPress={handlePress}
-        style={{marginTop: 15}}
+        style={styles.cart}
         rightIcon={require('../assets/vectors/arrow_right.svg')}></ConditionsCart>
     );
   };
@@ -62,7 +61,7 @@ export const HomeScreen: React.FC<
             style={styles.loadingImage}
             source={require('../assets/images/loadingLogo.gif')}
             resizeMode={FastImage.resizeMode.contain}
-            />
+          />
         </View>
       </Modal>
     </View>
@@ -105,5 +104,10 @@ const styles = StyleSheet.create({
   loadingImage: {
     width: 260,
     height: 260,
+  },
+  cart: {
+    marginTop: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#d9d9d9',
   },
 });

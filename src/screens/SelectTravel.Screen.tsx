@@ -50,14 +50,21 @@ export const SelectTravelScreen: React.FC<
         onChange={setSelectedValue}
         // onPress={() => navigation.navigate(Routes.home)}
       />
-      <View style={styles.buttonContainer}>
+      <View style={styles.buttons}>
         <Button
+          width={58}
+          height={19}
+          textColor={colors.bg.openBlue}
           style={styles.button}
-          width={328}
-          height={44}
+          text="Back"
+          onPress={() => navigation.goBack()}
+        />
+        <Button
+          width={58}
+          height={21}
+          style={styles.button}
           text="Continue"
-          textColor={colors.white}
-          backgroundColor={colors.bg.blue}
+          textColor={colors.bg.openBlue}
           onPress={() => navigation.navigate(Routes.home)}
         />
       </View>
@@ -69,22 +76,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 14,
     fontWeight: '400',
     margin: 16,
   },
-  buttonContainer: {
-    flexGrow: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 16,
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#F2F2F2',
+    height: 80,
+    marginTop: 'auto',
   },
   button: {
     borderRadius: 8,
-    width: 328,
-    alignSelf: 'center',
-    marginTop: 20,
   },
 });
 

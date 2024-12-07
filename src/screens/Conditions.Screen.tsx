@@ -70,17 +70,15 @@ export const ConditionsScreen: React.FC<
           height={19}
           textColor={colors.bg.openBlue}
           style={styles.button}
-          backgroundColor=""
           text="Decline"
           onPress={() => navigation.goBack()}
         />
         <Button
           width={58}
-          height={19}
+          height={21}
           style={styles.button}
-          backgroundColor={colors.bg.openBlue}
           text="Accept"
-          textColor={colors.white}
+          textColor={colors.bg.openBlue}
           onPress={toggleModal}
         />
       </View>
@@ -145,12 +143,15 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 25,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#F2F2F2',
+    height: 80,
   },
+
   button: {
-    borderWidth: 1,
-    borderColor: colors.bg.blue,
     borderRadius: 8,
   },
   modalOverlay: {

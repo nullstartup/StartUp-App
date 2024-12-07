@@ -47,6 +47,7 @@ export const AdvanceInformationScreen: React.FC<
         additoinalTextTwo={item.additoinalTextTwo}
         linkText={item.linkText}
         isLast={isLast}
+        style={{marginVertical: 0}}
       />
     );
   };
@@ -65,7 +66,7 @@ export const AdvanceInformationScreen: React.FC<
         setModalVisible(false);
         navigation.navigate(Routes.userList);
       } else {
-        setValidateResult('Enter Valid Captcha Incorrect');
+        setValidateResult('Please enter the matching letters and numbers');
       }
     }, 2000);
   };
@@ -81,10 +82,8 @@ export const AdvanceInformationScreen: React.FC<
         rightActionType="icon"
         right={vectors.human}
       />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{left: 20, marginTop: 20}}>
-        <Text style={styles.text}>INSTRUCTIONS</Text>
+      <Text style={styles.text}>INSTRUCTIONS</Text>
+      <ScrollView showsVerticalScrollIndicator={false} style={{left: 20,marginTop:13}}>
         <FlashList
           scrollEnabled={false}
           data={advanceInformation}
@@ -94,13 +93,24 @@ export const AdvanceInformationScreen: React.FC<
           }
         />
       </ScrollView>
-      <Button
-        text="Continue"
-        backgroundColor={colors.bg.blue}
-        textColor={colors.white}
-        style={styles.button}
-        onPress={handleContinuePress}
-      />
+      <View style={styles.buttons}>
+        <Button
+          width={58}
+          height={19}
+          textColor={colors.bg.openBlue}
+          style={styles.button}
+          text="Back"
+          onPress={() => navigation.goBack()}
+        />
+        <Button
+          width={58}
+          height={21}
+          style={styles.button}
+          text="Continue"
+          textColor={colors.bg.openBlue}
+          onPress={handleContinuePress}
+        />
+      </View>
 
       <Modal
         visible={modalVisible}
@@ -135,7 +145,7 @@ export const AdvanceInformationScreen: React.FC<
                   <Text style={styles.buttonText}>Verify</Text>
                 </TouchableOpacity>
               </View>
-              <Text>{validateResult}</Text>
+              <Text style={{color: 'red'}}>{validateResult}</Text>
             </View>
           )}
         </View>
@@ -153,16 +163,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: colors.bg.blue,
-    paddingTop: 18,
-    marginLeft: 20,
-    paddingBottom: 20,
-  },
-  button: {
-    borderRadius: 8,
-    width: 328,
-    alignSelf: 'center',
-    marginTop: 20,
-    marginBottom: 20,
+    paddingVertical: 15,
+    paddingLeft: 20,
+    backgroundColor: '#F2F2F2',
   },
   modalContainer: {
     flex: 1,
@@ -176,7 +179,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 300,
     alignItems: 'center',
-    height: 220,
+    height: 250,
   },
   loadingImage: {
     width: 260,
@@ -213,6 +216,19 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     marginBottom: 13,
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#F2F2F2',
+    height: 80,
+    marginTop: 'auto',
+  },
+  button: {
+    borderRadius: 8,
   },
 });
 

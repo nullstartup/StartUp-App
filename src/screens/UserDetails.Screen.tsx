@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Header} from '../components/Header';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
@@ -34,7 +34,7 @@ export const UserDetailsScreen: React.FC<
         rightActionType="icon"
         right={vectors.human}
       />
-      <View style={{alignItems:"center"}}>
+      <View style={{alignItems: 'center'}}>
         <View
           style={{
             width: 329,
@@ -109,7 +109,7 @@ export const UserDetailsScreen: React.FC<
           </View>
         </View>
         <View style={styles.appointmentDetails}>
-          <Text style={styles.appointmetHeader}>Next Steps</Text>
+          <Text style={styles.steps}>Next Steps</Text>
           <View style={styles.appointmentDesc}>
             <FlashList
               scrollEnabled={false}
@@ -133,6 +133,7 @@ export const UserDetailsScreen: React.FC<
                     additoinalTextTwo={item.additoinalTextTwo}
                     linkText={item.linkText}
                     isLast={isLast}
+                    style={{marginVertical: 0}}
                   />
                 );
               }}
@@ -194,7 +195,6 @@ const styles = StyleSheet.create({
   },
   travelersDesc: {
     width: '90%',
-    height: 17,
     gap: 14,
     alignSelf: 'center',
   },
@@ -217,7 +217,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   appointmentDesc: {
-    width: 268,
+    width: Dimensions.get('screen').width - 40,
+  },
+  steps: {
+    width: '100%',
+    height: 40,
+    backgroundColor: '#F2F2F2',
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.bg.blue,
+    textAlignVertical: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 20,
   },
 });
 

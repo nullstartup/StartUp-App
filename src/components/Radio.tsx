@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     marginLeft: 50,
   },
   circle: {
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
     borderRadius: 12,
     borderWidth: 2,
     borderColor: '#6b7280',
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   innerCircle: {
-    height: 12,
-    width: 12,
+    height: 8,
+    width: 8,
     borderRadius: 6,
     backgroundColor: '#0266B3',
   },

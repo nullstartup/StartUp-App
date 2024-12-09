@@ -125,11 +125,11 @@ const styles = StyleSheet.create({
   },
   line: {
     width: 2,
-    backgroundColor: colors.border.bottom,
+    backgroundColor: colors.border.line,
     flexShrink: 1,
   },
   cart: {
-    padding: 10,
+    paddingBottom: 20,
     width: '100%',
     borderRadius: 8,
   },

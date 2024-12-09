@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 20,
+    marginRight: 30,
   },
   text: {
     flex: 1,
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     borderColor: '#6b7280',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 20,
   },
   innerCircle: {
     height: 8,

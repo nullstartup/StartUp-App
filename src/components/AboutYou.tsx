@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 275,
     paddingHorizontal: 10,
+    marginLeft: 20,
   },
   imageContainer: {
     width: 40,
@@ -47,10 +48,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
+    borderWidth: 1,
   },
   image: {
-    width: 70,
-    height: 70,
+    width: 58,
+    height: 53,
     resizeMode: 'contain',
     marginRight: 10,
   },

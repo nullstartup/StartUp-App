@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Araboto-Normal.ttf",
+      "sha1": "33886558ac5919fde52e0da9562fe126bfff6f6b"
+    },
+    {
+      "path": "src/assets/fonts/BAENO.ttf",
+      "sha1": "e72cf8ad471b51c0252a22749cd81997975c78ec"
+    }
+  ]
+}

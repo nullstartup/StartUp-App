@@ -58,15 +58,24 @@ export const LanguagePreferenceScreen: React.FC<
         onPress={() => console.log('Language selected')}
       />
       <View style={styles.buttonContainer}>
-        <Button
-          style={styles.button}
-          width={328}
-          height={44}
-          text="Continue"
-          textColor={colors.white}
-          backgroundColor={colors.bg.blue}
-          onPress={() => navigation.navigate(Routes.advanceInformation)}
-        />
+        <View style={styles.buttons}>
+          <Button
+            width={58}
+            height={19}
+            textColor={colors.bg.openBlue}
+            style={styles.button}
+            text="DECLINE"
+            onPress={() => navigation.goBack()}
+          />
+          <Button
+            width={58}
+            height={21}
+            style={styles.button}
+            text="ACCEPT"
+            textColor={colors.bg.openBlue}
+            onPress={() => navigation.navigate(Routes.advanceInformation)}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -75,7 +84,7 @@ export const LanguagePreferenceScreen: React.FC<
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between', // İçeriği sayfanın üstü ve altına itmek için
   },
   text: {
     fontSize: 15,
@@ -90,15 +99,20 @@ const styles = StyleSheet.create({
     width: 331,
   },
   buttonContainer: {
-    flexGrow: 1,
+    flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 16,
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#F2F2F2',
+    height: 80,
   },
   button: {
     borderRadius: 8,
-    width: 328,
-    alignSelf: 'center',
-    marginTop: 20,
   },
 });
 

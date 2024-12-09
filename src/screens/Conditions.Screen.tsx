@@ -52,7 +52,7 @@ export const ConditionsScreen: React.FC<
         titleColor={colors.white}
       />
       <ScrollView>
-        <View style={{marginBottom: 20}}>
+        <View style={{marginBottom: 20, padding: 10}}>
           <FlashList
             scrollEnabled={false}
             data={Conditions}
@@ -70,14 +70,14 @@ export const ConditionsScreen: React.FC<
           height={19}
           textColor={colors.bg.openBlue}
           style={styles.button}
-          text="Decline"
+          text="DECLINE"
           onPress={() => navigation.goBack()}
         />
         <Button
           width={58}
           height={21}
           style={styles.button}
-          text="Accept"
+          text="ACCEPT"
           textColor={colors.bg.openBlue}
           onPress={toggleModal}
         />
@@ -124,6 +124,8 @@ export const ConditionsScreen: React.FC<
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   titleView: {
     alignItems: 'center',

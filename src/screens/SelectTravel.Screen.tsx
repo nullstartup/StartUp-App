@@ -56,14 +56,14 @@ export const SelectTravelScreen: React.FC<
           height={19}
           textColor={colors.bg.openBlue}
           style={styles.button}
-          text="Back"
+          text="BACK"
           onPress={() => navigation.goBack()}
         />
         <Button
           width={58}
           height={21}
           style={styles.button}
-          text="Continue"
+          text="CONTINUE"
           textColor={colors.bg.openBlue}
           onPress={() => navigation.navigate(Routes.home)}
         />

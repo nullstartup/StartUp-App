@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useCallback} from 'react';
 import {
   Modal,
   ScrollView,
@@ -11,46 +11,28 @@ import {
 import {Header} from '../components/Header';
 import {colors} from '../theme/colors';
 import {FlashList} from '@shopify/flash-list';
-import {ConditionsCart, IConditionsCart} from '../components/ConditionsCart';
+import {ConditionsCart} from '../components/ConditionsCart';
 import {advanceInformation} from '../mock/ConditonsMock';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NavigationParamList} from '../types/navigation.type';
 import {Routes} from '../router/routes';
 import {Button} from '../components/Button';
-import Captcha, {CaptchaRef} from 'react-native-simple-text-captcha';
 import FastImage from 'react-native-fast-image';
+import Captcha from '../components/Captcha';
 
 export const AdvanceInformationScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.advanceInformation>
 > = ({navigation}) => {
-  const captchaRef = useRef<CaptchaRef>(null);
-  const [captcha, setCaptcha] = useState('');
-  const [validateResult, setValidateResult] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [captcha, setCaptcha] = useState<string>('');
+  const [validateResult, setValidateResult] = useState<string>('');
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const renderItem = ({
-    item,
-    index,
-  }: {
-    item: IConditionsCart;
-    index: number;
-  }) => {
-    const isLast = index === advanceInformation.length - 1;
-    return (
-      <ConditionsCart
-        id={item.id}
-        titleColor={colors.black}
-        title={item.title}
-        description={item.description}
-        additoinalText={item.additoinalText}
-        additoinalTextTwo={item.additoinalTextTwo}
-        linkText={item.linkText}
-        isLast={isLast}
-        style={{marginVertical: 0}}
-      />
-    );
-  };
+  const captchaRef = useRef<any>(null);
+
+  const handleRefresh = useCallback((newCaptcha: string) => {
+    console.log('New CAPTCHA:', newCaptcha);
+  }, []);
 
   const handleContinuePress = () => {
     setModalVisible(true);
@@ -62,6 +44,7 @@ export const AdvanceInformationScreen: React.FC<
 
     setTimeout(() => {
       setLoading(false);
+
       if (check) {
         setModalVisible(false);
         navigation.navigate(Routes.userList);
@@ -83,11 +66,28 @@ export const AdvanceInformationScreen: React.FC<
         right={vectors.human}
       />
       <Text style={styles.text}>INSTRUCTIONS</Text>
-      <ScrollView showsVerticalScrollIndicator={false} style={{left: 20,marginTop:13}}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{left: 20, marginTop: 13}}>
         <FlashList
           scrollEnabled={false}
           data={advanceInformation}
-          renderItem={renderItem}
+          renderItem={({item, index}) => {
+            const isLast = index === advanceInformation.length - 1;
+            return (
+              <ConditionsCart
+                id={item.id}
+                titleColor={colors.black}
+                title={item.title}
+                description={item.description}
+                additoinalText={item.additoinalText}
+                additoinalTextTwo={item.additoinalTextTwo}
+                linkText={item.linkText}
+                isLast={isLast}
+                style={{marginVertical: 0}}
+              />
+            );
+          }}
           keyExtractor={(item, index) =>
             item.id ? item.id.toString() : index.toString()
           }
@@ -99,14 +99,14 @@ export const AdvanceInformationScreen: React.FC<
           height={19}
           textColor={colors.bg.openBlue}
           style={styles.button}
-          text="Back"
+          text="BACK"
           onPress={() => navigation.goBack()}
         />
         <Button
           width={58}
           height={21}
           style={styles.button}
-          text="Continue"
+          text="CONTINUE"
           textColor={colors.bg.openBlue}
           onPress={handleContinuePress}
         />
@@ -129,7 +129,11 @@ export const AdvanceInformationScreen: React.FC<
               <Text style={styles.modalText}>
                 Enter the matching letters and numbers
               </Text>
-              <Captcha ref={captchaRef} />
+              <Captcha
+                ref={captchaRef}
+                backgroundImage={require('../assets/images/captcha.jpg')}
+                onRefresh={handleRefresh}
+              />
               <View style={styles.rowContainer}>
                 <TextInput
                   style={styles.input}
@@ -244,3 +248,5 @@ const vectors = {
     height: 24,
   },
 };
+
+export default AdvanceInformationScreen;

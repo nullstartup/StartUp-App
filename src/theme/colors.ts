@@ -17,6 +17,7 @@ export const colors = {
     },
     border: {
         bottom: '#EFEFEF',
+        line: '#D7D7D7',
     },
     green: {
         open: '#6DAF39',

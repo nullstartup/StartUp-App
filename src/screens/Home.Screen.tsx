@@ -46,7 +46,7 @@ export const HomeScreen: React.FC<
       />
       <View style={styles.line}></View>
 
-      <View style={{flex: 1, marginLeft: 10, marginTop: 19}}>
+      <View style={{flex: 1, marginLeft: 10}}>
         <FlatList
           data={Traveler}
           renderItem={renderItem}

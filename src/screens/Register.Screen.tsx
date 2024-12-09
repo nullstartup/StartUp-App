@@ -81,10 +81,9 @@ export const RegisterScreen: React.FC<
         <View style={{flexDirection: 'column', flex: 1}}>
           <Text style={styles.formTitle}>Sign in for existing users</Text>
           <View>
-            <Input caption="Email address" placeholder="Email*" />
+            <Input caption="Email address"/>
             <Input
               caption="Password"
-              placeholder="Password*"
               secureTextEntry={!showPassword}
             />
           </View>

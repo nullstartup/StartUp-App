@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.black,
     marginTop: 4,
-    fontWeight: '400',
+    fontFamily: 'Aragon Sans SC Bold',
   },
   icon: {
     width: 24,
@@ -162,12 +162,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
     fontWeight: '400',
+    fontFamily: 'Aragon Sans SC Bold',
   },
   additionalText: {
     color: colors.black,
     fontSize: 14,
     marginTop: 24,
     fontWeight: '400',
+    fontFamily: 'Aragon Sans SC Bold',
   },
   rightIcon: {
     width: 24,

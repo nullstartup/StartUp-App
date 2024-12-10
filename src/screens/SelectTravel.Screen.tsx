@@ -40,10 +40,11 @@ export const SelectTravelScreen: React.FC<
         onLeftPress={() => navigation.goBack()}
         titleColor={colors.white}
       />
-      <Text style={styles.title}>
+      <Text style={[styles.title]}>
         Please select from the options provided below. | Por favor seleccione
         una de las opciones a continuacion
       </Text>
+      <View style={styles.line}></View>
       <Radio
         options={options}
         checkedValue={selectedValue}
@@ -95,6 +96,11 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 8,
+  },
+  line: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.bottom,
+    marginBottom: 13,
   },
 });
 

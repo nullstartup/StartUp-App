@@ -50,6 +50,7 @@ export const LanguagePreferenceScreen: React.FC<
           Tanpri chwazi nan opsyon yo bay anba a.
         </Text>
       </View>
+      <View style={styles.line}></View>
       <Radio
         style={{left: -20, marginTop: 20}}
         options={options}
@@ -64,14 +65,14 @@ export const LanguagePreferenceScreen: React.FC<
             height={19}
             textColor={colors.bg.openBlue}
             style={styles.button}
-            text="DECLINE"
+            text="BACK"
             onPress={() => navigation.goBack()}
           />
           <Button
             width={58}
             height={21}
             style={styles.button}
-            text="ACCEPT"
+            text="CONTINUE"
             textColor={colors.bg.openBlue}
             onPress={() => navigation.navigate(Routes.advanceInformation)}
           />
@@ -84,7 +85,7 @@ export const LanguagePreferenceScreen: React.FC<
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between', // İçeriği sayfanın üstü ve altına itmek için
+    justifyContent: 'space-between',
   },
   text: {
     fontSize: 15,
@@ -94,8 +95,6 @@ const styles = StyleSheet.create({
     gap: 10,
     marginTop: 19,
     alignSelf: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.bottom,
     width: 331,
   },
   buttonContainer: {
@@ -113,6 +112,10 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 8,
+  },
+  line: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.bottom,
   },
 });
 

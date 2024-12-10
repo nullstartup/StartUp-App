@@ -68,7 +68,7 @@ export const AdvanceInformationScreen: React.FC<
       <Text style={styles.text}>INSTRUCTIONS</Text>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={{left: 20, marginTop: 13}}>
+        style={{left: 20, marginTop: 13, width: '82%'}}>
         <FlashList
           scrollEnabled={false}
           data={advanceInformation}
@@ -131,7 +131,7 @@ export const AdvanceInformationScreen: React.FC<
               </Text>
               <Captcha
                 ref={captchaRef}
-                backgroundImage={require('../assets/images/captcha.jpg')}
+                backgroundImage={require('../assets/images/refreshBg.png')}
                 onRefresh={handleRefresh}
               />
               <View style={styles.rowContainer}>

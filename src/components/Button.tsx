@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 14,
-    fontWeight: '600',
     width: 'auto',
     height: 'auto',
+    fontFamily: 'Aragon Sans SC Bold',
   },
 });

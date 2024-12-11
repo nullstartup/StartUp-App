@@ -26,7 +26,7 @@ export const UserListScreen: React.FC<
       <Button
         onPress={() => navigation.navigate(Routes.userDetails)}
         style={styles.button}
-        text="Register Travelers"
+        text="REGISTER TRAVELERS"
         backgroundColor={colors.bg.openBlue}
         textColor={colors.white}
       />

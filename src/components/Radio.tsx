@@ -38,15 +38,19 @@ export const Radio: React.FC<IRadio> = ({
               onChange(option.value);
               if (onPress) onPress(option.value);
             }}>
-            {option.image && (
-              <Image source={option.image} style={styles.image} />
-            )}
-            <Text style={[styles.text, !option.image && styles.textFullWidth]}>
-              {option.label}
-            </Text>
+            <View style={styles.content}>
+              {option.image && (
+                <Image source={option.image} style={styles.image} />
+              )}
+              <Text
+                style={[styles.text, !option.image && styles.textFullWidth]}>
+                {option.label}
+              </Text>
+            </View>
             <View style={styles.circle}>
               {isActive && <View style={styles.innerCircle} />}
             </View>
+            <View style={styles.bottomLine} />
           </TouchableOpacity>
         );
       })}
@@ -66,8 +70,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 15,
     justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.bottom,
+    position: 'relative',
+  },
+  content: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
   },
   activeRadio: {
     // backgroundColor: '#e0f7fa',
@@ -103,5 +111,13 @@ const styles = StyleSheet.create({
     width: 8,
     borderRadius: 6,
     backgroundColor: '#0266B3',
+  },
+  bottomLine: {
+    position: 'absolute',
+    bottom: 0,
+    left: 70,
+    right: 0,
+    height: 1,
+    backgroundColor: colors.border.bottom,
   },
 });

@@ -83,22 +83,22 @@ export const UserDetailsScreen: React.FC<
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Hasan Hasanov</Text>
-              <Text>20465023</Text>
+              <Text>20376934</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Elxan Asadov</Text>
-              <Text>20465024</Text>
+              <Text>20376935</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Bugra Erdogan</Text>
-              <Text>20465025</Text>
+              <Text>20376936</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Davud Huseynov</Text>
-              <Text>20465026</Text>
+              <Text>20376937</Text>
             </View>
           </View>
         </View>

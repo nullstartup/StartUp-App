@@ -82,6 +82,7 @@ export const UserDetailsScreen: React.FC<
           <View style={styles.travelersDesc}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+<<<<<<< HEAD
               <Text>Hasan Hasanov</Text>
               <Text>20376934</Text>
             </View>
@@ -89,17 +90,32 @@ export const UserDetailsScreen: React.FC<
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Elxan Asadov</Text>
               <Text>20376935</Text>
+=======
+              <Text>Huseyn Huseynov</Text>
+              <Text>20587233</Text>
             </View>
             <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text>Huseyn Huseynov</Text>
+              <Text>20587934</Text>
+>>>>>>> 3c02766d4ac63b455afed918158bffa1bfec41f1
+            </View>
+            {/* <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text>Bugra Erdogan</Text>
               <Text>20376936</Text>
             </View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+<<<<<<< HEAD
               <Text>Davud Huseynov</Text>
               <Text>20376937</Text>
             </View>
+=======
+              <Text>Milana Hasanova</Text>
+              <Text>20587916</Text>
+            </View> */}
+>>>>>>> 3c02766d4ac63b455afed918158bffa1bfec41f1
           </View>
         </View>
         <View style={styles.appointmentDetails}>

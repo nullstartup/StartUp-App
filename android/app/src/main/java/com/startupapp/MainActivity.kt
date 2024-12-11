@@ -1,5 +1,6 @@
 package com.startupapp
-
+import com.facebook.react.bridge.JSIModulePackage
+import com.swmansion.reanimated.ReanimatedJSIModulePackage
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -19,4 +20,11 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+
+  /**
+   * Returns the JSIModulePackage for enabling JS Modules, especially Reanimated
+   */
+  override fun getJSIModulePackage(): JSIModulePackage? {
+      return ReanimatedJSIModulePackage() // Reanimated JSIModulePackage'ini ekliyoruz
+  }
 }
